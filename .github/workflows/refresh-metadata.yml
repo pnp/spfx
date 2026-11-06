@@ -1,0 +1,132 @@
+name: Refresh and publish gallery
+
+on:
+  schedule:
+    - cron: '17 4 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/scripts/**'
+      - '.github/workflows/refresh-metadata.yml'
+      - '.metadata/sources.json'
+      - '.metadata/quality-baseline.json'
+      - 'src/**'
+      - 'public/**'
+      - 'assets/**'
+      - 'tests/**'
+      - 'scripts/**'
+      - 'astro.config.mjs'
+      - 'tsconfig.json'
+      - 'playwright.config.ts'
+      - 'package.json'
+      - 'package-lock.json'
+  pull_request:
+    paths:
+      - '.github/scripts/**'
+      - '.github/workflows/refresh-metadata.yml'
+      - '.metadata/sources.json'
+      - '.metadata/quality-baseline.json'
+      - 'src/**'
+      - 'public/**'
+      - 'assets/**'
+      - 'tests/**'
+      - 'scripts/**'
+      - 'astro.config.mjs'
+      - 'tsconfig.json'
+      - 'playwright.config.ts'
+      - 'package.json'
+      - 'package-lock.json'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sample-metadata-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  collect-and-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.4'
+          cache: npm
+      - name: Use the supported npm peer resolver
+        run: npm install --global npm@11.21.1
+      - run: npm ci
+      - name: Restore optimized preview cache
+        uses: actions/cache@v4
+        with:
+          path: .cache/gallery-previews
+          key: ${{ runner.os }}-gallery-previews-v1-${{ github.run_id }}
+          restore-keys: ${{ runner.os }}-gallery-previews-v1-
+      - name: Collect all source repositories
+        run: npm run samples:collect
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - name: Audit metadata against the reviewed baseline
+        run: npm run samples:audit
+      - name: Test metadata, catalog and discovery
+        run: npm test
+      - name: Check the typed Astro site
+        run: npm run check
+      - name: Build the static gallery
+        run: npm run build
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Validate desktop, mobile, themes and accessibility
+        run: npm run test:e2e
+      - name: Upload the verified Pages artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+      - name: Retain snapshot and quality reports, including failed audits
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: spfx-sample-metadata
+          retention-days: 14
+          if-no-files-found: error
+          include-hidden-files: true
+          path: |
+            .metadata/sources.json
+            .metadata/collection-status.json
+            .metadata/source-data.json
+            .metadata/samples.json
+            .metadata/quality-report.json
+            .metadata/quality-report.md
+            .metadata/quality-baseline.json
+            public/preview-report.json
+      - name: Retain browser diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gallery-browser-diagnostics
+          if-no-files-found: ignore
+          path: |
+            playwright-report/
+            test-results/
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: collect-and-audit
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: github-pages
+      cancel-in-progress: false
+    steps:
+      - uses: actions/configure-pages@v6
+      - name: Publish the verified gallery
+        id: deployment
+        uses: actions/deploy-pages@v5

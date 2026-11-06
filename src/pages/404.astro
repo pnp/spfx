@@ -1,0 +1,8 @@
+---
+import { ArrowRight } from '@lucide/astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { sitePath } from '../lib/catalog';
+---
+<BaseLayout title="A new direction">
+  <section class="container page-heading not-found"><p aria-hidden="true">404</p><h1>This idea took a different path.</h1><p class="page-lead">The page isn't here, but your next starting point probably is.</p><a class="button" href={sitePath('/#explore')}>Explore the samples <ArrowRight size={17} aria-hidden="true" /></a></section>
+</BaseLayout>

@@ -147,3 +147,18 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# Generated gallery snapshots and machine reports (regenerate with npm scripts)
+.metadata/source-data.json
+.metadata/collection-status.json
+.metadata/samples.json
+.metadata/quality-report.json
+
+# Public gallery projections (generated from the audited source snapshot)
+src/data/catalog.json
+public/catalog.json
+public/search-index.json
+public/preview-report.json
+public/images/previews/
+playwright-report/
+test-results/

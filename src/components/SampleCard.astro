@@ -1,0 +1,35 @@
+---
+import { ArrowUpRight, Bookmark, Check } from '@lucide/astro';
+import type { SampleSummary } from '../lib/types';
+import { formatDate, formatVersion, samplePath, sitePath } from '../lib/catalog';
+interface Props { sample: SampleSummary }
+const { sample } = Astro.props;
+const image = sample.preview.src.startsWith('/') ? sitePath(sample.preview.src) : sample.preview.src;
+const type = sample.componentTypes[0] ?? sample.family;
+---
+<article class="sample-card" data-card data-sample-id={sample.id}>
+  <div class:list={['card-preview', { 'is-fallback': sample.preview.isFallback }]} data-preview-wrap>
+    <img data-card-image src={image} alt={sample.preview.alt} width="640" height="360" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+    <span class="fallback-label" data-fallback-label hidden={!sample.preview.isFallback}>Preview unavailable</span>
+    <span class="card-experience" data-card-experience>{sample.experiences[0] ?? sample.family}</span>
+    <button class="save-button" data-save-id={sample.id} data-save-title={sample.title} type="button" aria-pressed="false" aria-label={`Save ${sample.title}`} disabled>
+      <Bookmark size={17} class="save-outline" aria-hidden="true" /><Check size={17} class="save-check" aria-hidden="true" />
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="card-topline"><span data-card-type>{type}</span><span class="version-chip" data-card-version>{formatVersion(sample)}</span></div>
+    <h3><a data-card-link href={samplePath(sample.slug)}>{sample.title}</a></h3>
+    <p class="card-description" data-card-description>{sample.description}</p>
+    <div class="card-tags" data-card-tags>{sample.technologies.slice(0, 2).map((technology) => <span>{technology}</span>)}</div>
+    <div class="card-bottom">
+      <div class="card-authors" data-card-authors>
+        {sample.authors.slice(0, 2).map((author) => author.avatar
+          ? <img src={author.avatar} width="22" height="22" alt="" loading="lazy" referrerpolicy="no-referrer" />
+          : <span class="avatar-initial" aria-hidden="true">{author.name.slice(0, 1)}</span>)}
+        <span>{sample.authors[0]?.name ?? 'Contributor information not recorded'}{sample.authors.length > 1 ? ` +${sample.authors.length - 1}` : ''}</span>
+      </div>
+      <ArrowUpRight size={17} class="card-arrow" aria-hidden="true" />
+    </div>
+    <div class="card-meta"><span data-card-date title="First published">{formatDate(sample.created)}</span><span data-card-review hidden={!sample.quality.needsReview}>Metadata review</span></div>
+  </div>
+</article>

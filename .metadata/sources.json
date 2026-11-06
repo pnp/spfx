@@ -1,0 +1,56 @@
+{
+  "formatVersion": 1,
+  "sources": [
+    {
+      "repository": "pnp/sp-dev-fx-webparts",
+      "roots": ["samples"],
+      "family": "Web parts"
+    },
+    {
+      "repository": "pnp/sp-dev-fx-extensions",
+      "roots": ["samples"],
+      "family": "Extensions",
+      "reviewedExclusions": [
+        {
+          "path": "samples/react-teamschatnotifications-functions",
+          "reason": "Azure Functions backend linked by the react-teamschatNotifications application customizer. README, @azure/functions dependency, host.json and function.json identify supporting backend code, with no SPFx runtime dependency or component manifest."
+        }
+      ]
+    },
+    {
+      "repository": "pnp/spfx-copilot-components",
+      "roots": ["samples"],
+      "family": "Copilot components"
+    },
+    {
+      "repository": "pnp/spfx-reference-scenarios",
+      "roots": ["samples"],
+      "family": "Reference scenarios"
+    },
+    {
+      "repository": "pnp/sp-dev-fx-aces",
+      "roots": ["samples", "scenarios"],
+      "family": "Adaptive Card Extensions",
+      "reviewedExclusions": [
+        {
+          "path": "samples/ImageCard-ApplyLeave-OOF-Holiday",
+          "reason": "Artifact-only directory: all 142 tracked files are under lib, release, sharepoint or temp; no README, package.json or source exists (verified at 714a3eb9a0cb53a4c3973d10ad8f3c2608fca624)."
+        }
+      ],
+      "frameworkOverrides": [
+        {
+          "path": "samples/BotPowered-BasicAce-CollectFeedback",
+          "framework": "Bot Framework",
+          "versionKey": "BOT-FRAMEWORK-VERSION",
+          "reason": "README and .csproj identify a .NET 6 bot-powered ACE using Bot Builder 4.21.2; there is no SPFx package dependency. Preserve the existing bot40 declaration rather than invent SPFX-VERSION."
+        },
+        {
+          "path": "samples/BotPowered-BasicAce-Tasks",
+          "framework": "Bot Framework",
+          "versionKey": "BOT-FRAMEWORK-VERSION",
+          "reason": "README and .csproj identify a .NET 6 bot-powered ACE using Bot Builder 4.21.2; there is no SPFx package dependency. Preserve the existing bot40 declaration rather than invent SPFX-VERSION."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+---
+import { ArrowDown, ArrowRight, Bookmark, Braces, CodeXml, Layers, PanelsTopLeft, Search, SlidersHorizontal, Sparkles, Users, X } from '@lucide/astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SampleCard from '../components/SampleCard.astro';
+import { catalog, sitePath, summaries } from '../lib/catalog';
+import { defaultState, discover } from '../lib/discovery';
+import type { Facet } from '../lib/types';
+const initial = discover(summaries, defaultState(), new Set<string>());
+const template = initial.samples[0];
+if (!template) throw new Error('The gallery requires a non-empty audited catalog.');
+const groups = [
+  { key: 'types', title: 'Component type', values: initial.facets.types },
+  { key: 'technologies', title: 'Technology', values: initial.facets.technologies },
+  { key: 'versions', title: 'SPFx version', values: initial.facets.versions },
+  { key: 'sources', title: 'Source repository', values: initial.facets.sources },
+];
+const experiences = ['Copilot', 'SharePoint', 'Teams', 'Connections'];
+const count = (experience: string) => catalog.facets.experiences.find((facet: Facet) => facet.value === experience)?.count ?? 0;
+---
+<BaseLayout>
+  <section class="hero container">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="live-dot"></span> Microsoft 365 &amp; Power Platform Community</p>
+      <h1>Small building blocks.<br /><span>Big possibilities.</span></h1>
+      <p class="hero-lead">Copilot, SharePoint, Teams <strong>and more.</strong></p>
+      <p class="hero-description">Make Microsoft 365 your own with real-world SPFx samples for Copilot, SharePoint, Teams, Viva Connections and beyond. Find your starting point. Add your spark. Build something brilliant.</p>
+      <div class="hero-actions"><a class="button" href="#explore">Find your next idea <ArrowDown size={17} aria-hidden="true" /></a><a class="text-link" href={sitePath('/getting-started/')}>New to SPFx? Start here <ArrowRight size={16} aria-hidden="true" /></a></div>
+      <div class="hero-proof"><span class="proof-icon"><Users size={17} aria-hidden="true" /></span><span><strong>{catalog.totals.contributors.toLocaleString('en')} contributors.</strong> Countless starting points.</span></div>
+    </div>
+    <div class="hero-art" aria-label="One community connects Copilot, SharePoint, Teams and Connections across Microsoft 365">
+      <div class="art-grid" aria-hidden="true"></div>
+      <div class="art-orbit orbit-one" aria-hidden="true"></div><div class="art-orbit orbit-two" aria-hidden="true"></div>
+      <span class="art-caption">An idea is just the beginning.</span>
+      <div class="art-tile tile-copilot"><span class="tile-icon"><Sparkles size={20} aria-hidden="true" /></span><span>Make it intelligent<strong>Copilot</strong></span><span class="tile-status" aria-hidden="true"></span></div>
+      <div class="art-tile tile-sharepoint"><span class="tile-icon"><PanelsTopLeft size={20} aria-hidden="true" /></span><span>Make it your workspace<strong>SharePoint</strong></span></div>
+      <div class="art-tile tile-teams"><span class="tile-icon"><Users size={20} aria-hidden="true" /></span><span>Bring people together<strong>Teams</strong></span></div>
+      <div class="art-tile tile-connections"><span class="tile-icon"><Layers size={20} aria-hidden="true" /></span><span>Make every day better<strong>Connections</strong></span></div>
+      <div class="art-core"><img src={sitePath('/images/parker.png')} alt="" width="94" height="94" /><strong>Built to connect.</strong><span>Powered by SPFx.</span></div>
+      <div class="art-code" aria-hidden="true"><CodeXml size={16} /><span>yourIdea + ourCommunity</span><span class="code-cursor"></span></div>
+      <div class="art-note"><Braces size={16} aria-hidden="true" /> Open source. Wide open possibilities.</div>
+    </div>
+  </section>
+  <section class="catalog-intro container" aria-label="Community sample catalog">
+    <div><span class="eyebrow">A little inspiration. A lot of possibility.</span><h2>Your next great idea starts here.</h2></div>
+    <div class="catalog-totals"><span><strong>{catalog.totals.samples.toLocaleString('en')}</strong> samples</span><span><strong>{catalog.sources.length}</strong> repositories</span><span><strong>100%</strong> community</span></div>
+  </section>
+  <section class="explorer container" id="explore" aria-label="Explore Microsoft 365 samples" data-explorer data-index-url={sitePath('/search-index.json')}>
+    <div class="experience-tabs" role="group" aria-label="Filter by experience">
+      <button type="button" data-experience="" aria-pressed="true" disabled><span>All experiences</span><span class="tab-count">{catalog.totals.samples}</span></button>
+      {experiences.map((experience) => <button type="button" data-experience={experience} aria-pressed="false" disabled><span>{experience}</span><span class="tab-count">{count(experience)}</span></button>)}
+    </div>
+    <div class="explorer-toolbar">
+      <div class="search-control"><Search size={20} aria-hidden="true" /><label class="sr-only" for="sample-search">Search samples</label><input id="sample-search" type="search" placeholder="An idea, a technology, a problem to solve..." autocomplete="off" disabled /><kbd aria-hidden="true">/</kbd></div>
+      <button type="button" class="saved-filter secondary-control" id="saved-filter" aria-pressed="false" disabled><Bookmark size={17} aria-hidden="true" /> My collection <span id="saved-count">0</span></button>
+      <div class="sort-control"><label for="sample-sort">Sort by</label><select id="sample-sort" disabled><option value="newest">Newest first</option><option value="updated">Recently updated</option><option value="title">A to Z</option></select></div>
+    </div>
+    <div class="catalog-layout">
+      <aside class="filter-sidebar" aria-label="Sample filters">
+        <details class="filter-drawer" open>
+          <summary><span><SlidersHorizontal size={17} aria-hidden="true" /> Refine your discovery</span><span class="filter-mobile-label">Filters</span></summary>
+          <div class="filter-content">
+            <button type="button" class="clear-filters" id="clear-filters" disabled>Reset all filters <X size={13} aria-hidden="true" /></button>
+            {groups.map((group) => <details class="filter-group" data-filter-group={group.key} open={group.key !== 'sources'}>
+              <summary>{group.title}<span aria-hidden="true">+</span></summary>
+              <div class="filter-options">{group.values.map((facet) => <label class="filter-option"><input type="checkbox" data-facet={group.key} value={facet.value} disabled /><span>{facet.label}</span><span class="facet-count" data-facet-count>{facet.count}</span></label>)}</div>
+            </details>)}
+            <div class="filter-note"><span class="mini-parker"><img src={sitePath('/images/parker.png')} alt="" width="29" height="29" loading="lazy" /></span><p>Find a spark.<br /><strong>Make it your own.</strong></p></div>
+            <a class="sidebar-link" href={sitePath('/catalog-health/')}>About this catalog <ArrowRight size={13} aria-hidden="true" /></a>
+          </div>
+        </details>
+      </aside>
+      <div class="catalog-results">
+        <div class="results-heading"><p id="results-count" role="status" aria-live="polite"><strong>{initial.total.toLocaleString('en')}</strong> starting points for your next idea</p><span class="results-note">Find it. Fork it. Make it yours.</span></div>
+        <div class="active-filters" id="active-filters" aria-label="Active filters"></div>
+        <p class="explorer-error" id="explorer-error" role="alert" hidden></p>
+        <noscript><p class="notice">Search and saved collections need JavaScript. <a href={sitePath('/browse/')}>Browse every sample without JavaScript.</a></p></noscript>
+        <div class="sample-grid" id="sample-grid">{initial.samples.map((sample) => <SampleCard sample={sample} />)}</div>
+        <div class="empty-state" id="empty-state" hidden><span class="empty-icon"><Search size={30} aria-hidden="true" /></span><h3 id="empty-title">No matches. Still plenty of possibilities.</h3><p id="empty-description">Try a different search or remove a filter to discover something new.</p><button class="button" type="button" id="empty-reset" disabled>Start fresh <ArrowRight size={16} aria-hidden="true" /></button></div>
+        <nav class="pagination" aria-label="Sample result pages"><button class="secondary-control" id="previous-page" type="button" disabled>Previous</button><span id="page-status">1–{initial.to} of {initial.total}</span><button class="secondary-control" id="next-page" type="button" disabled>Next <ArrowRight size={15} aria-hidden="true" /></button></nav>
+        <p class="catalog-footnote">Every sample has a story. Follow its source for setup, requirements and the latest updates. <a href={sitePath('/browse/')}>Browse A–Z</a></p>
+      </div>
+    </div>
+    <template id="sample-card-template"><SampleCard sample={template} /></template>
+  </section>
+  <script src="../scripts/explorer.ts"></script>
+</BaseLayout>

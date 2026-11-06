@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { catalog, samplePath } from '../lib/catalog';
+const samples = [...catalog.samples].sort((a, b) => a.title.localeCompare(b.title) || a.id.localeCompare(b.id));
+---
+<BaseLayout title="Browse all samples" description="The complete Microsoft 365 SPFx community sample directory, available without JavaScript.">
+  <header class="page-heading container"><p class="eyebrow">Every idea, in one place</p><h1>The whole collection.</h1><p class="page-lead">All {samples.length.toLocaleString('en')} sample records, alphabetically. No filters or JavaScript required.</p></header>
+  <section class="container page-content"><div class="content-panel"><ul class="directory-list">{samples.map((sample) => <li><a href={samplePath(sample.slug)}>{sample.title}</a><span>{sample.family} · {sample.experiences.join(', ') || 'Microsoft 365'}</span></li>)}</ul></div></section>
+</BaseLayout>

@@ -1,0 +1,108 @@
+---
+import { ArrowUpRight, ArrowRight, GitFork, Menu, Moon, Sun } from '@lucide/astro';
+import { catalog, sitePath } from '../lib/catalog';
+import '../styles/global.css';
+
+interface Props { title?: string; description?: string; image?: string }
+const {
+  title = 'SPFx Samples',
+  description = 'Community-built Microsoft 365 experiences. Discover SPFx samples for Copilot, SharePoint, Teams, Viva Connections and more.',
+  image,
+} = Astro.props;
+const pageTitle = title === 'SPFx Samples' ? 'SPFx Samples | Build for Microsoft 365' : `${title} | SPFx Samples`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const nav = [
+  { title: 'Samples', href: '/' },
+  { title: 'Getting started', href: '/getting-started/' },
+  { title: 'Contributors', href: '/contributors/' },
+  { title: 'Contributing', href: '/contributing/' },
+  { title: "What's new", href: '/whats-new/' },
+];
+const current = (href: string) => href === '/'
+  ? Astro.url.pathname === sitePath('/') || Astro.url.pathname.startsWith(sitePath('/samples/'))
+  : Astro.url.pathname.startsWith(sitePath(href));
+const socialImage = new URL(image ?? sitePath('/images/sample-preview-fallback.png'), Astro.site);
+---
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#f5f7fb" id="theme-color" />
+    <title>{pageTitle}</title>
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/png" href={sitePath('/images/parker.png')} />
+    <link rel="preload" href={sitePath('/fonts/parker-regular.woff2')} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={sitePath('/fonts/parker-extrabold.woff2')} as="font" type="font/woff2" crossorigin />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script is:inline>
+      try {
+        const theme = localStorage.getItem('spfx-samples-theme') === 'dark' ? 'dark' : 'light';
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      } catch (error) {
+        console.warn('Theme preferences could not be read; using light mode.', error);
+      }
+    </script>
+  </head>
+  <body data-base={sitePath('/')} data-fallback={sitePath('/images/sample-preview-fallback.png')}>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="spectrum" aria-hidden="true"></div>
+      <div class="header-inner container">
+        <a class="brand" href={sitePath('/')} aria-label="SPFx Samples home">
+          <img src={sitePath('/images/parker.png')} alt="" width="42" height="42" />
+          <span><span class="brand-kicker">Built by the community</span><strong>SPFx <span>Samples</span></strong></span>
+        </a>
+        <div class="header-actions">
+          <nav class="desktop-nav" aria-label="Primary navigation">
+            <a href="https://aka.ms/community/home">Community <ArrowUpRight size={12} aria-hidden="true" /></a>
+            {nav.map((item) => <a href={sitePath(item.href)} aria-current={current(item.href) ? 'page' : undefined}>{item.title}</a>)}
+            <a class="github-nav" href="https://github.com/pnp/spfx"><GitFork size={16} aria-hidden="true" /> GitHub</a>
+          </nav>
+          <details class="mobile-nav">
+            <summary aria-label="Open navigation"><Menu size={23} aria-hidden="true" /></summary>
+            <nav aria-label="Mobile navigation">
+              <a href="https://aka.ms/community/home">Community <ArrowUpRight size={12} aria-hidden="true" /></a>
+              {nav.map((item) => <a href={sitePath(item.href)} aria-current={current(item.href) ? 'page' : undefined}>{item.title}</a>)}
+              <a href="https://github.com/pnp/spfx">GitHub</a>
+            </nav>
+          </details>
+          <button class="theme-toggle" id="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Switch to dark mode">
+            <Sun size={16} class="theme-sun" aria-hidden="true" /><Moon size={16} class="theme-moon" aria-hidden="true" />
+          </button>
+        </div>
+      </div>
+    </header>
+    <main id="main-content" tabindex="-1"><slot /></main>
+    <section class="community-banner container" aria-label="Build with the community">
+      <div class="community-banner-icon" aria-hidden="true"><img src={sitePath('/images/parker.png')} alt="" width="47" height="47" loading="lazy" /></div>
+      <div><p class="eyebrow">Good code gets better together</p><h2>Your next idea belongs here.</h2><p>Share a sample. Help a developer. Build something that makes work better.</p></div>
+      <a class="button button-light" href={sitePath('/contributing/')}>Become a contributor <ArrowRight size={17} aria-hidden="true" /></a>
+    </section>
+    <footer class="site-footer">
+      <div class="container footer-top">
+        <div class="footer-brand"><strong>Microsoft 365 &amp; Power Platform Community</strong><p>Small building blocks. A world of possibilities.</p><span class="footer-freshness">{catalog.totals.samples.toLocaleString('en')} samples · {catalog.sources.length} source repositories</span></div>
+        <nav aria-label="Footer navigation">
+          <a href="https://aka.ms/community/home">Community home <ArrowUpRight size={12} aria-hidden="true" /></a>
+          <a href={sitePath('/catalog.json')}>Catalog JSON</a>
+          <a href={sitePath('/catalog-health/')}>Catalog health</a>
+          <a href="https://github.com/pnp/spfx/issues/new">Report an issue</a>
+          <a href="https://opensource.microsoft.com/codeofconduct/">Code of conduct</a>
+          <a href={sitePath('/asset-license.txt')}>Asset credits</a>
+        </nav>
+      </div>
+      <div class="container footer-bottom"><span>Built by the community, for the community.</span><a href="https://github.com/pnp/spfx/blob/main/LICENSE">Open source. Open possibilities. <ArrowUpRight size={12} aria-hidden="true" /></a></div>
+    </footer>
+    <p class="sr-only" id="site-status" role="status" aria-live="polite"></p>
+    <p class="toast" id="site-toast" role="status" aria-live="polite" hidden></p>
+    <script src="../scripts/site.ts"></script>
+  </body>
+</html>

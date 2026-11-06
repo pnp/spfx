@@ -1,0 +1,19 @@
+---
+import { ArrowRight, ArrowUpRight } from '@lucide/astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { sitePath } from '../lib/catalog';
+---
+<BaseLayout title="Getting started" description="Your starting point for building Microsoft 365 experiences with SPFx and community samples.">
+  <header class="page-heading container"><p class="eyebrow">From a spark to something real</p><h1>Your idea. A head start.</h1><p class="page-lead">You don't need to start from a blank canvas. Find a pattern that feels close, understand how it works, and make it your own.</p></header>
+  <section class="container page-content">
+    <div class="guide-grid">
+      <section class="content-panel"><span class="guide-number">01</span><h2>Find your experience</h2><p>Bring intelligence into Copilot, useful experiences into SharePoint, collaboration into Teams, or everyday tools into Connections. Use experience, component and technology filters to find your building block.</p><a class="guide-link" href={sitePath('/#explore')}>Explore the samples <ArrowRight size={14} aria-hidden="true" /></a></section>
+      <section class="content-panel"><span class="guide-number">02</span><h2>Follow the source</h2><p>Every sample belongs to its original repository. Read its README, prerequisites, permissions and license. Match the sample's SPFx version and supported Node.js tooling before installing.</p><a class="guide-link" href="https://learn.microsoft.com/sharepoint/dev/spfx/compatibility">Check the compatibility guide <ArrowUpRight size={14} aria-hidden="true" /></a></section>
+      <section class="content-panel"><span class="guide-number">03</span><h2>Add your spark</h2><p>Run the sample in a development environment, understand its data and permissions, then adapt it. Small improvements count. Share what you learn with the people who build alongside you.</p><a class="guide-link" href={sitePath('/contributing/')}>Give something back <ArrowRight size={14} aria-hidden="true" /></a></section>
+    </div>
+    <div class="wide-guide">
+      <section class="content-panel"><h2>One framework. More places to build.</h2><p>SPFx, the SharePoint Framework, is the extensibility foundation behind these Microsoft 365 experiences. A single solution can bring together different component types and supported hosts. The gallery reflects that: a sample can appear under more than one experience.</p><ul><li><strong>Copilot:</strong> interactive components that turn a conversation into something you can explore and act on.</li><li><strong>SharePoint:</strong> web parts, custom forms and extensions for useful pages, portals and connected workspaces.</li><li><strong>Teams:</strong> tabs, personal apps and connected collaboration experiences, where the source explicitly supports them.</li><li><strong>Connections:</strong> Adaptive Card Extensions that bring timely information and actions into the flow of work.</li></ul></section>
+      <section class="content-panel"><h2>A few things worth knowing</h2><ul><li>Samples are community learning resources, not production support commitments. Review code, permissions and dependencies before use.</li><li>Older versions stay discoverable. A version badge is a declaration from source metadata, not a guarantee that a sample runs on today's tooling.</li><li>Some legacy metadata is being corrected. Sample details identify known issues; the source README and package files remain authoritative.</li><li>Bot-powered ACE examples use their own framework. They do not receive a made-up SPFx version.</li><li>Your saved collection stays in your browser. This gallery does not add analytics, accounts or cross-site collection tracking.</li></ul><a class="guide-link" href={sitePath('/catalog-health/')}>How the catalog is built <ArrowRight size={14} aria-hidden="true" /></a></section>
+    </div>
+  </section>
+</BaseLayout>

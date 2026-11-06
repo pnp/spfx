@@ -1,0 +1,25 @@
+---
+import { ArrowUpRight } from '@lucide/astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { catalog } from '../lib/catalog';
+const descriptions: Record<string, { title: string; description: string }> = {
+  'pnp/sp-dev-fx-webparts': { title: 'Web parts', description: 'Useful building blocks for SharePoint pages, portals and supported Microsoft 365 hosts.' },
+  'pnp/sp-dev-fx-extensions': { title: 'Extensions', description: 'Custom forms, commands, fields and application-level experiences.' },
+  'pnp/spfx-copilot-components': { title: 'Copilot components', description: 'Interactive experiences that bring ideas into the Copilot canvas.' },
+  'pnp/spfx-reference-scenarios': { title: 'Reference scenarios', description: 'Connected solutions that put several patterns together.' },
+  'pnp/sp-dev-fx-aces': { title: 'Adaptive Card Extensions', description: 'Small, useful experiences for Connections and the flow of work.' },
+};
+---
+<BaseLayout title="Contributing" description="Share your Microsoft 365 building blocks with the community. Find the right source repository for your sample.">
+  <header class="page-heading container"><p class="eyebrow">There's room for your idea</p><h1>Build it. Share it.<br />Help someone make it better.</h1><p class="page-lead">A sample doesn't have to solve everything. Sometimes one thoughtful pattern is exactly the head start someone else needs.</p></header>
+  <section class="container page-content">
+    <div class="wide-guide">
+      <section class="content-panel"><h2>Good contributions come in every size</h2><p>Share a new sample, clarify setup instructions, improve accessibility, report a reproducible problem, or help someone understand a pattern. This is a community, not a competition.</p><p><strong>Sample changes go to the source repository.</strong> This central gallery collects metadata, not sample projects. Follow that repository's contribution guidance, README template, validation and licensing requirements.</p></section>
+      <div class="source-list">
+        {catalog.sources.map((source) => <section class="source-item"><div><h2>{descriptions[source.repository]?.title ?? source.repository}</h2><p>{descriptions[source.repository]?.description ?? 'Contribute in the original sample repository.'}</p><p>{source.samples} sample records · {source.repository}</p></div><a class="guide-link" href={`https://github.com/${source.repository}`}>Open repository <ArrowUpRight size={14} aria-hidden="true" /></a></section>)}
+      </div>
+      <section class="content-panel"><h2>Help your sample shine</h2><ul><li>Write a clear title and explain the problem your sample solves.</li><li>Declare the SPFx version that the actual packages use, including prerelease suffixes where relevant.</li><li>Add a genuine screenshot with useful alternative text. Never substitute a generic placeholder for evidence of the experience.</li><li>Credit every contributor and link to the sample's final source location.</li><li>Keep prerequisites, permissions and setup steps accurate and complete.</li></ul><p>For gallery navigation, filtering or presentation issues, use the central repository. For code or setup questions, use the sample's source repository.</p><a class="guide-link" href="https://github.com/pnp/spfx/issues/new">Help improve this gallery <ArrowUpRight size={14} aria-hidden="true" /></a></section>
+      <section class="content-panel"><h2>Keep the conversation going</h2><p>Join community calls, show what you've built and learn alongside people working on the same challenges. Everyone is welcome.</p><a class="guide-link" href="https://aka.ms/community/home">Find your community <ArrowUpRight size={14} aria-hidden="true" /></a></section>
+    </div>
+  </section>
+</BaseLayout>

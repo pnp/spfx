@@ -1,0 +1,19 @@
+---
+import { ArrowRight } from '@lucide/astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { catalog, sitePath } from '../lib/catalog';
+const contributors = [...catalog.contributors].sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+---
+<BaseLayout title="Contributors" description="Meet the community behind the Microsoft 365 SPFx samples, and explore the building blocks they share.">
+  <header class="page-heading container"><p class="eyebrow">The people behind the possibilities</p><h1>Great ideas don't<br />happen alone.</h1><p class="page-lead">Meet the community sharing its knowledge, one building block at a time. Every sample is a little more possible because someone chose to share.</p></header>
+  <section class="container page-content" aria-label="Community contributors">
+    <div class="contributor-tools"><label class="sr-only" for="contributor-search">Find a contributor</label><input class="text-input" id="contributor-search" type="search" placeholder="Find a contributor..." /><span class="muted-label" id="contributor-count" role="status">{contributors.length.toLocaleString('en')} community contributors</span></div>
+    <div class="contributors-grid">
+      {contributors.map((contributor) => <article class="contributor-card" data-contributor={`${contributor.name} ${contributor.account ?? ''}`.toLocaleLowerCase()}>
+        {contributor.avatar ? <img src={contributor.avatar} alt="" width="66" height="66" loading="lazy" referrerpolicy="no-referrer" /> : <span class="contributor-avatar" aria-hidden="true">{contributor.name.slice(0, 1)}</span>}
+        <h2>{contributor.name}</h2><p>{contributor.count} sample{contributor.count === 1 ? '' : 's'}</p>
+        {contributor.account ? <a href={`${sitePath('/')}?author=${encodeURIComponent(contributor.account)}#explore`}>Explore their samples <ArrowRight size={12} aria-hidden="true" /></a> : <span class="muted-label">Credited in source</span>}
+      </article>)}
+    </div>
+  </section>
+</BaseLayout>

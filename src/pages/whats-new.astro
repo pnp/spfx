@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { catalog, formatDate, samplePath } from '../lib/catalog';
+const newest = [...catalog.samples].filter((sample) => sample.created)
+  .sort((a, b) => (b.created ?? '').localeCompare(a.created ?? '') || a.id.localeCompare(b.id)).slice(0, 40);
+---
+<BaseLayout title="What's new" description="Fresh ideas from the Microsoft 365 SPFx sample community. Explore the newest published sample patterns.">
+  <header class="page-heading container"><p class="eyebrow">Fresh from the community</p><h1>The next idea<br />might be right here.</h1><p class="page-lead">Discover the latest starting points, ordered by the publication dates recorded in source metadata. A metadata correction is not presented as a new code release.</p></header>
+  <section class="container page-content timeline-list" aria-label="Recently published samples">
+    {newest.map((sample) => <article class="timeline-item"><time datetime={sample.created ?? undefined}>{formatDate(sample.created)}</time><div><h2><a href={samplePath(sample.slug)}>{sample.title}</a></h2><p>{sample.description}</p><div class="timeline-tags">{sample.experiences.map((experience) => <span>{experience}</span>)}{sample.technologies.slice(0, 2).map((technology) => <span>{technology}</span>)}</div></div></article>)}
+  </section>
+</BaseLayout>

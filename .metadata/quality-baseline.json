@@ -1,0 +1,883 @@
+{
+  "formatVersion": 1,
+  "approvedAt": "2026-11-06T17:24:46.112Z",
+  "sources": [
+    {
+      "repository": "pnp/sp-dev-fx-webparts",
+      "commit": "61d6542e0ff5964004fa4dbd001ec52f3f7b495b"
+    },
+    {
+      "repository": "pnp/sp-dev-fx-extensions",
+      "commit": "b3df920173cd6ad726b11367d754d1d846034252"
+    },
+    {
+      "repository": "pnp/spfx-copilot-components",
+      "commit": "7d9b4c0f7da67cfe54dc60be3da371ada2c2c81e"
+    },
+    {
+      "repository": "pnp/spfx-reference-scenarios",
+      "commit": "746c2fcb69cec30e7a9182ed7dd99c09bb02a83f"
+    },
+    {
+      "repository": "pnp/sp-dev-fx-aces",
+      "commit": "714a3eb9a0cb53a4c3973d10ad8f3c2608fca624"
+    }
+  ],
+  "issues": [
+    {
+      "fingerprint": "c1011cfeec9c865c5029a1fb29cf9a6edccff4feb41b4b4b8d5fbbd833cfd813",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ace-cardgallery/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "66e494e163ac2fa768c3f5fc3df87af2d77e5cca1558d6ad072c90aef60b12a3",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/BasicCard-CardComposition/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "2a88ef1e6a6a8daf8197bb8b5840c457105bee705530e82e34e73b5f1ce557c9",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/BasicCard-Graph-UpcomingEvents/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "f86360c512d2e06e5401cad2769c222a4b7d4e1a5bc43c5825a001f689712914",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/BasicCard-HTML-React-QuickView/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "0529ad55c0d02cb6c0e1f232fecd227f2ab0c52a59ead90e8ba6d4e66cdef61c",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/BasicCard-MonitorSecurity/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "98051526b295deddc7e34a2c0440260e91c0a827c605673ee1505d503030f29d",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/BasicCard-Multiple-Forms-Apps/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "b7dc4a9a9dc8498fbcc8fe6d05787ed1acfc3185bc0d8a446b265f840a19ce36",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/BasicCard-My-OneDrive-Info/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "6950508eb7fecbe53477dbd1c336aaafe6ff0f29d110278b613be41b7aa67423",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/BasicCard-PeopleSearch/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "8ce5c833b436eb6466b4c44c11cadf866744841fd5df969b144362f5115177ea",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/BasicCard-ShareGraphClient/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "5c7062a844c33337c839c790810cd8199d7e34ccd25f5610d8c878df454e41a7",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/BasicCard-SharePoint-CRUD/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "49935ddaafe010a98f4688c71d74c04b49bdd6ccf463d0116c76af50c7ddd947",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/BasicCard-StatusMessage/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "105f84e7ed772d639b12aadbd7d7c0094b37176c5c551aeb0d8b3d26987e43e5",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ChartCard-FilesByContentType/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "b78a10f2d3bfbf259876b7bed660f36717b41d943921cbd057c289b715dbaabc",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ChartCard-PageCreation/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "6e1903f34c81a8dc98c5ae1b984dd34573c40d43062edd27de8f7228365c6a95",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ChartCard-ThreeSeries/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.invalid"
+    },
+    {
+      "fingerprint": "ca1ace1318569a8459b9a1d2875d8fae8b6a2eaf28de5c22b36a2ecd0c5621fc",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/design-card/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "d70052d1038b1c2ed1b57e960ce4004c11ecfca7a43a335ea0d9bf2038ebf2d7",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/GenericCard-Graph-UserManager/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "bbbfff830aa97df21ff3f95ade45556918e347596a52e9c6cf30b44645025133",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ImageCard-At-a-glance/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "730253b9326301d0ce2d84dd327a4ce0c5d099502a32abb0d9e44d1b27b6bbb2",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ImageCard-BookingSpaces/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "bc4d7ed1da1f48271941dfdc78421f6cc0d23a3401bc15eb3abd4110113996c5",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ImageCard-DynamicContentCard/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "c12a6929cddd24bffe8f87a53bdb31c21d39c758354d24637d5a0678c9348ff3",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ImageCard-HideACE/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "968805bdfca5e0f73cd02fffdaa2fd9e5815137edc3ee0451abb550ceb03be00",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ImageCard-HTML-React-FAQs/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "d0cb8ce912e0f8699753748c5892ba8bb0d344171ea3a87ae4b53db193c1b31c",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ImageCard-HTML-React-Search-FAQs/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "2076f857ad3cc31b8e8fd83a871224ffaf27a0127d80d1cadac11727281912db",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ImageCard-HTML-React-Service-Health/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "4632034ec9055d2e3d203ddd319b83efdd3875e29411623abc59a61ae1d786d0",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ImageCard-HTML-React-Stock-Price-Chart/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "2e10d1fc6f1482c0b02e632da136ad2aef5e4ed57f3d750504f24767324a0b00",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ImageCard-HybridWork-Checkin/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "5b894763819f4873d0086f1de10a5b09483529eec24ed0e62778ad4db8b7215f",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ImageCard-Internships/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "5c0dbb71fa9648e30f51eb7aff40fb2b3853fcb751fdc6a30ef83bd2fab9ee7b",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ImageCard-LibraryLoans/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "fa6f4d9757bc3625387f649c3e26d85899bc33516986d409736891f3ecad209f",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ImageCard-MostLikedPages/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "374b39c50aeb4aefb8ccee5526ee77ba7111a66237df032164c1d8b616a630f4",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ImageCard-my-recent-files/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "3fe4b71f757757db9c05e51658d3acbde97306bf43fe120716571276d84728ea",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ImageCard-MyLocation/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "6e904b331edf18bbaa83e05557450c0ed6882a3cfc8a7f8cf3f1e095aaff53e8",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ImageCard-OneDriveCarousel/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "efb192553bc94eda6a3e983b3de1ddfba2f58432dd9aefa4d56bcac0ed1cd617",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ImageCard-PromotePages/assets/sample.json",
+      "index": 0,
+      "field": "thumbnails[0].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "60157b9fbc84965e0c6e1fdb4649a562e838d55069eb675740fc0d3b3f61737b",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ImageCard-Rss/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "31fa5b240db4cc92e01d358f08faee9faf097c395be861f6ca44e2f19d0571be",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ImageCard-sales-orders/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "a4559a336aef0b79b2497133187a0a01f3a834016eedc725927191d50b72be11",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ImageCard-sales-orders/assets/sample.json",
+      "index": 0,
+      "field": "thumbnails[0].url",
+      "code": "asset.case-mismatch"
+    },
+    {
+      "fingerprint": "65768204a6f5024b001a0f1ddb87b6bb8e7e0309f8b34fde40abcc032a71234c",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ImageCard-sales-orders/assets/sample.json",
+      "index": 0,
+      "field": "url",
+      "code": "url.source-mismatch"
+    },
+    {
+      "fingerprint": "765485edcfb670b607e42b1beaa2437d9aa9c174f388b0ad869fb9adf2ecca0a",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ImageCard-Scholarships/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "f7a28ee4e8108a6e0ac22adcb2631bc7d2f2e11a90d223adb24c6dad73f03b38",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ImageCard-TodaysLunch/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "0755700be7fc0fec4f961cfbee1e4a6bdb9da7b33d9ea989c0b55be3aa139144",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ImageCard-TodaysLunch/assets/sample.json",
+      "index": 0,
+      "field": "thumbnails[0].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "ab42cc02746bcc5127db50d7e2bf53959bc31d81c9b0a88d2a6d319e2a5d3d05",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ImageCard-Tuitions/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "9632183c88f7d7b1b5b66f909603e947b9f846be5abcb015c94d5f23aa821c27",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/ImageCard-WorldClock/assets/sample.json",
+      "index": 0,
+      "field": "updateDateTime",
+      "code": "date.order"
+    },
+    {
+      "fingerprint": "882372fa0c4a7ff06fe27b0453fc5d510ab901998130b239014a08a564c8b603",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/InputCard-Generic-NewItem/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "c7c85542acfcf94a24006b6a274b703ee26b15a0d43993213b87c0a987eab5e8",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/InputCard-StatusMessage/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "9ba11c2632024492bc1334670781d926ab35a0e31ec96291f4c0650afb303282",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/PrimaryTextCard-ChatGPTDailyInsights/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "555429a96a4592d3a58c618ce0b38f70876f4b5812c3f7614e45244aa66d4301",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/PrimaryTextCard-CreateTeam/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "3bf31931a52d7e7e381f34cb84daa9457be3ffe81b4754cc5d7a185a1fe86d75",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/PrimaryTextCard-Dynamic-Announcements/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "8350d0e61e0da4f226310e7eeb7fcd64ab71c3451400d4b8b5d6a493ef91b15b",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/PrimaryTextCard-Follow-Documents/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "6a74e93f061d50591aa644b51328777aaf5fca6bbce8455cd59b4ed49d1f9cdb",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/PrimaryTextCard-FootballStats/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "32cfd475d8ea8028b0b0b334531ab7cb72c9f1771b6f5dee0cb70cda2eee58d7",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/PrimaryTextCard-Graph-JoinNewTeams/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "1539a6cf6905825eae09854c0694082fff290f45f282dab1d62f428aaab2d38d",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/PrimaryTextCard-Graph-UnreadEmails/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "4b81928aeb62d4f54a26e1040e7f567544c576d6f06602807b914a63ba658e96",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/PrimaryTextCard-ManageTeam/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "98300b7679b109e98d433ff4ac9c85c34ae96773064d3f9922c25af9bea135f3",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/PrimaryTextCard-my-calendar-plan/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "bf52d5927989f3b8e8303a0a78a79888d4edb5e3865dac732566d61e403f3def",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/PrimaryTextCard-My-M365-Groups/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "7637d598b9453789572d46fabe62b3509f18c8746b25998918defede30ef8f52",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/PrimaryTextCard-MyEmails/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "ae19ccd2b31bdfffcad241135d757539a7c39526e4b857eeaa60a3dd92887fe7",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/PrimaryTextCard-MyShifts/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "b1b1a0b7e9bfac6e4fdd7f2e33253bce523ff963603b243996ec1f5388aa915e",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/PrimaryTextCard-NewsFeed",
+      "field": "$",
+      "code": "metadata.missing"
+    },
+    {
+      "fingerprint": "39b006ec9ed382ec3155c90c2bba47d5606276a6cbb971e3ac1fb90a612d8e7f",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/PrimaryTextCard-PeopleDetails/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "507fccb592c6204f4c5eb489b4edcb810daefef8300b32be9ab5eb2959c15b79",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/PrimaryTextCard-PlannerTasks/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "ea647d4d3801ff66a7b05e4152b208b25891d596691c7b71254acea40be18218",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/PrimaryTextCard-RecentFiles/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "ae525735898cfff2ec2db79d118fd33ed24238812b428c410fe028d06f8279bd",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/PrimaryTextCard-Search/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "a3590ec6419417da45bc527baf65e74ed4504a7619741d9f0aacefc2f3ff5b5b",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/PrimaryTextCard-Service-Health/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "0de3d9d7c41804c711a04d79ead257727ee6b750af4f77a8db7a42b9f0d39747",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/PrimaryTextCard-StockBitcoinFeed/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "e54f1876487f0370eeaed7f9e9c70705e4af9232d7c648c205e4e06d775ccf3b",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/PrimaryTextCard-TfL-Status/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "b2adc147a76095557092c67c85c5cbda3bfeb8014fc908613e7a489f02322e36",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/PrimaryTextCard-WordOfTheDay/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "93965d3d969f0409790e286b7d22850f80939f07b2593b6b1dae5fe9d8df9601",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "samples/SearchCard-SamplesGallerySearch/assets/sample.json",
+      "index": 0,
+      "field": "metadata.SPFX-VERSION",
+      "code": "version.package-mismatch"
+    },
+    {
+      "fingerprint": "a4af8ee7362084e176b04ba0a4c030848f16bb1a6bb1b85ac3f42f5cf850d5bd",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "scenarios/ace-lob/assets/sample.json",
+      "index": 0,
+      "field": "longDescription",
+      "code": "array.invalid"
+    },
+    {
+      "fingerprint": "03af6e67a19a0444fe36c20e3fdaea18b1fe97bd894b33ba4aa67f7d6324ebe4",
+      "repository": "pnp/sp-dev-fx-aces",
+      "path": "scenarios/ace-microsoftgraph/assets/sample.json",
+      "index": 0,
+      "field": "longDescription",
+      "code": "array.invalid"
+    },
+    {
+      "fingerprint": "1e85726538ed27f583e58e9890c4591e9c64a9bbc789a30cd56c01fe83fc9868",
+      "repository": "pnp/sp-dev-fx-extensions",
+      "path": "samples/js-application-redirect/assets/sample.json",
+      "index": 0,
+      "field": "thumbnails[0].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "772e371bd59e8e5b43c4999009db1f2adec9782918979038173686aaa406ba8c",
+      "repository": "pnp/sp-dev-fx-extensions",
+      "path": "samples/js-application-run-once/assets/sample.json",
+      "index": 0,
+      "field": "thumbnails",
+      "code": "preview.missing"
+    },
+    {
+      "fingerprint": "81279de830e8719c075994657d0392ab9cd4fb15183bd4bea40bac022120c288",
+      "repository": "pnp/sp-dev-fx-extensions",
+      "path": "samples/react-application-alert-banner/Assets/sample.json",
+      "index": 0,
+      "field": "thumbnails[0].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "85f62997a72fef5853b58400eaa839ba7713d460112b6abb79c03aef85894874",
+      "repository": "pnp/sp-dev-fx-extensions",
+      "path": "samples/react-command-convert-to-pdf/assets/sample.json",
+      "index": 0,
+      "field": "thumbnails[0].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "c0aaa3d133d76d6106e6263b1cd020b234a447c93098e9ffdf43a8bf37a3965a",
+      "repository": "pnp/sp-dev-fx-extensions",
+      "path": "samples/react-command-documents-redaction/Assets/sample.json",
+      "index": 0,
+      "field": "thumbnails[0].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "85b471eba71e077668a43ba1d1e2bd3b8f6b292e1b0b5554e457f079740280b8",
+      "repository": "pnp/sp-dev-fx-extensions",
+      "path": "samples/react-site-content-ribbon-extension/assets/sample.json",
+      "index": 0,
+      "field": "thumbnails",
+      "code": "preview.missing"
+    },
+    {
+      "fingerprint": "345fb4050400cacedf8d3e1456c3ee91bc9a38b0f8ae21e95aa6afdc80e28d61",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[1].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "cb5fd51ccfdaf04453c33aac894869e1f5c17040859a84aea0c67cb15e3901e0",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[10].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "9011b6f2ad36538ba65b25658001cdf87f7866546a70c6eca6b56668834727d0",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[11].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "aa949326e0ddbb6949efc7074e4dcc7c17dd673615e5c3c264df241c8bb498c2",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[12].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "95b2d4a5e31bddc69c592ca859ad6694fc6fba36e9e3d08f2c505558a8e73873",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[13].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "83f6e0270e82cabe15218e80e0d31832da71d66122f3e0f429a43ad860ba8f47",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[14].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "7c97b6100ff2425a4b92084c9363ce7631209b8f0de32ca6fdb34a0ed92c78e6",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[15].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "2684b6572e293f0c8cd552f7ffa9bfdead274f785bce036c87194ef9715bd292",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[16].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "091551c60603ea7dc8049b72e1a5ee25eca264c59e41d841a750e998dbf179ff",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[17].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "50dc0c06685ae7d9bf499981b6683a35b8952fe38e4395487f9aab1627f1e831",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[18].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "a863f8c2cd6381a914fbcb477c7b8dd53692e32bd8efac624437d951a32a14c8",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[19].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "2888568ac2e69b26c61aca0316aed62fca7df2af6df997394232826416b2bd19",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[2].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "0f31e4b2b697d6b4fc5c3ae388337b372eefadef150f7293d445bfab744e1694",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[20].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "05f516ad4944c9755c98264bb154a4633f864acfb06191741c2552dd26abc784",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[21].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "38bba82d62916ca8a68c34350b174aa0675e3d416890876be4faef5ecd360393",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[22].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "7fb4a8f790f5f743388ab7d21bcfedcd58b022b0f31274338490db340e144a9f",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[23].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "e6dc3002cf8390539048f8528a45157f905d99f3da1298a8c4196c430c3a1405",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[24].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "b67feaf43f0f59e5961f5eed70551cd94b997d599047a40683e21022b8ef745e",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[25].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "a1066efd29e4a5883d20c1b3678bcdea3339ec3ea0c44fa2922c679e525f59e8",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[26].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "7ab090aefc0e214bad8d61c0004e24b4e7a0f6c59bafbbccd0c8b9f3eb85ef31",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[27].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "6e9d0cf227d6f9673c727f702394aaa576883d2b4f7b209613ad0b667c67547b",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[28].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "ad3178ef8b29c994954092f0e3e9228c15fe8b8b5ef8056ddc150a9adcf83065",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[29].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "2ac8225ee149cba85e3e9ed0f942b9c2eb5141ea5cf4ee06158cf0f2831de420",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[30].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "315cce419024234c0e15edeb33be24a7c3f721231999ae464d3ae9cacb72db1f",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[4].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "a1a12ac3173dcb97220e7d9392fb0bd5a4e6ffdb6e5ff0976a43c706b572421c",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[5].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "c5411b2d8fd2af2afb95b8e3a282d9a11efa45e1220bc47c912e75365881224d",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[6].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "2eecb53b766136ae95f23cae5fc68aeee38905c84321515894f7c71034de49a3",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[7].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "39ed32973f573faf730fbde8a4e10b14ebb6b8af4fba3e5fbbe4a5ed95054baa",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[8].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "02ace8c8be1f2cb64a1eca80632d1fad662576fe2ef24e603718eb0ee600a2af",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-birthdays/assets/sample.json",
+      "index": 1,
+      "field": "thumbnails[9].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "6f6a53a3350da42b5d24fb2b84501ef35b3b088adf67a4b55cf8c2b18071d110",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-group-members/assets/sample.json",
+      "index": 0,
+      "field": "thumbnails",
+      "code": "preview.missing"
+    },
+    {
+      "fingerprint": "2d223831301cfbc937aaa4fe4be16f8d2d1428881c6a3c428d5ec82688c06ef3",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/react-site-content/assets/sample.json",
+      "index": 0,
+      "field": "thumbnails[0].url",
+      "code": "asset.missing"
+    },
+    {
+      "fingerprint": "c26adfd4bacfe43e4d78c0fad082fa1630bd64f33d609257641e86f98f349f91",
+      "repository": "pnp/sp-dev-fx-webparts",
+      "path": "samples/spfx-news/assets/sample.json",
+      "index": 0,
+      "field": "thumbnails",
+      "code": "preview.missing"
+    },
+    {
+      "fingerprint": "c9c11b118209fb24752fd19aa9f80004aff864ebfbe3920d0f54e4875c11a3ce",
+      "repository": "pnp/spfx-reference-scenarios",
+      "path": "samples/ace-application-state/assets/sample.json",
+      "index": 0,
+      "field": "thumbnails",
+      "code": "preview.missing"
+    },
+    {
+      "fingerprint": "b439180763af0b6799e427a2a87ce20a1be860d601b9cfbd8d6bd1d8f4d66724",
+      "repository": "pnp/spfx-reference-scenarios",
+      "path": "samples/ace-shared-state/assets/sample.json",
+      "index": 0,
+      "field": "thumbnails",
+      "code": "preview.missing"
+    }
+  ]
+}
