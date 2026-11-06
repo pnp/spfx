@@ -17,6 +17,7 @@
     "check": "npm run catalog:generate && astro check",
     "build": "npm run samples:audit && npm run catalog:generate && astro build",
     "preview": "astro preview --host 127.0.0.1",
+    "pretest": "npm run catalog:generate",
     "test": "node --test .github/scripts/sample-metadata.test.mjs tests/catalog.test.mjs tests/discovery.test.mjs tests/previews.test.mjs",
     "test:e2e": "playwright test"
   },

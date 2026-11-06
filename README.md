@@ -37,6 +37,8 @@ Astro checker supports TypeScript 5/6, not TypeScript 7. npm 11 avoids the npm 1
 peer-resolution failure encountered when installing the Astro toolchain.
 Browser tests start a production preview on port 4321, or reuse an existing local
 preview there; Astro permits only one preview process per project.
+`npm test` first generates its public catalog inputs from the audited metadata,
+so the same command works after a clean checkout and source refresh.
 
 ## The experience
 
