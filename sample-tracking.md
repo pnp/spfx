@@ -112,7 +112,7 @@ candidates, but no additional source PRs were created during this counts refresh
 - [x] Keep original screenshot defects in this tracker; do not rewrite upstream metadata to point to a central placeholder.
 - [x] Verify runtime failed-image handling as well as metadata-known missing assets on desktop and mobile.
 
-The local gallery now includes all 794 collected records and 248 contributors,
+The [published gallery](https://pnp.github.io/spfx/) includes all 794 collected records and 248 contributors,
 with explicit source-quality notes. It does not apply the unmerged ACE patch.
 Primary preview preparation converts 759 unique images to local WebP assets
 (about 12.08 MB versus 1.24 GB of source media). Fourteen oversized originals
@@ -158,4 +158,4 @@ The missing video alt declaration was corrected from README evidence; every rema
 - Thirteen PRs are merged (ten reference scenarios, Copilot, extensions, web parts); ACE remains open. No open-PR fixes are counted as landed.
 - Source collection, unique IDs, full record/file counts, combined PR audit, PNG signature/dimensions and 32 focused tests are verified.
 - The baseline is updated only to actual merged/default-branch findings. Newly fingerprinted preview errors from created/moved metadata match the previously validated deferred-preview projection; fixed fingerprints are removed. No malformed/version errors are newly approved.
-- The complete source backlog remains in [.metadata/quality-report.md](./.metadata/quality-report.md). The local gallery exposes these accepted findings explicitly; source cleanup is still incomplete while the ACE PR is unmerged.
+- The complete source backlog remains in [.metadata/quality-report.md](./.metadata/quality-report.md). The published gallery exposes these accepted findings explicitly; source cleanup is still incomplete while the ACE PR is unmerged.

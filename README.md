@@ -4,9 +4,12 @@
 gallery, powered by SPFx, with a distinctive Parker/blue identity and shared
 Microsoft 365 & Power Platform Community navigation.
 
-The Astro gallery is implemented locally. The publication target is
-**https://pnp.github.io/spfx/**; publishing requires committing/merging the site
-and configuring GitHub Pages to use GitHub Actions.
+**[Open the live gallery](https://pnp.github.io/spfx/)**
+
+[![Gallery build and deployment](https://github.com/pnp/spfx/actions/workflows/refresh-metadata.yml/badge.svg?branch=main)](https://github.com/pnp/spfx/actions/workflows/refresh-metadata.yml)
+
+The Astro gallery is published from `main` through GitHub Actions and GitHub
+Pages. Use the gallery link above or the repository's About link to test it.
 
 ## Run locally
 
@@ -103,8 +106,15 @@ Pull requests validate but do not deploy. Only the separate `github-pages`
 deployment job receives Pages/OIDC write permissions. A failed collection,
 quality gate or build cannot replace the last successful deployment.
 
-Repository setup still required: **Settings -> Pages -> Source: GitHub Actions**.
-No live deployment is claimed by a successful local build.
+Pages is configured with **Source: GitHub Actions**, HTTPS and a `github-pages`
+environment restricted to `main`. The [verified deployment](https://github.com/pnp/spfx/actions/runs/42277784440)
+passed the Linux build, 90 unit tests and 22 browser checks. All 22 desktop/mobile
+checks were also run successfully against the public site, including discovery,
+saved collections, themes, source actions, fallbacks and accessibility.
+
+For an on-demand refresh, open **Actions -> Refresh and publish gallery -> Run
+workflow** and select `main`. Daily refresh remains scheduled for 04:17 UTC;
+GitHub schedules are best-effort.
 
 ## Tracking and credits
 

@@ -78,7 +78,9 @@ The [repair tracker](./sample-tracking.md) distinguishes landed fixes from this 
 - Verified a clean npm 11 install, **90 unit tests**, **22 desktop/mobile browser checks** and an Astro type check with **zero diagnostics**.
 - Verified **25,350 internal link/asset references** and layouts at **375px, 768px and 1440px**, including light/dark and explicit SharePoint artwork/discovery.
 - Optimized **759 primary previews** to about **12.08 MB**; **14 oversized originals** use the labeled fallback with a public processing report.
-- Local production preview: **http://127.0.0.1:4321/spfx/**. Pages activation/public deployment is still pending; no source merge policy was bypassed.
+- Live gallery: **https://pnp.github.io/spfx/**. A local preview can be started at **http://127.0.0.1:4321/spfx/**; no source merge policy was bypassed.
+- [Verified GitHub Pages deployment](https://github.com/pnp/spfx/actions/runs/42277784440): Linux CI passed the build, 90 unit tests and 22 browser checks; all 22 browser checks also passed against the public site.
+- Public checks confirmed 794 directory links, a sample detail route, optimized image/font delivery, catalog/search JSON, sitemap, robots and the branded 404. The first failed build did not deploy; missing clean-checkout catalog inputs were fixed before the successful release.
 
 - [x] Check JSON parsing/root shapes, required text, dates, products, key/value metadata, authors, previews and references.
 - [x] Check names/URLs for duplicates and verify sample links belong to the correct repository and sample directory.
@@ -195,7 +197,7 @@ Design requirements for the next phase:
 - [x] Keep Pages/OIDC write permissions only in the separate `github-pages` deployment job.
 - [x] Serialize deployments and require successful validation before a new Pages artifact can deploy.
 - [x] Expose collected source commits, refresh time, source-quality notes and preview processing/provenance.
-- [ ] Configure GitHub Pages to use GitHub Actions in repository settings, then verify the public `/spfx/` URL.
+- [x] Configure GitHub Pages to use Actions with HTTPS and a main-only environment; verify the public `/spfx/` URL.
 - [ ] Decide redirects/canonical links for legacy galleries with their maintainers. Do not switch off existing sites before parity and link compatibility are verified.
 
 ## Step-by-step delivery and acceptance
@@ -231,7 +233,8 @@ Acceptance: all eligible source records reconcile with the public catalog; no du
 - [x] Add desktop/mobile Playwright tests and automated accessibility checks, including SharePoint discovery and sample details.
 - [x] Measure the production preview with Lighthouse mobile simulated throttling: **performance 99, accessibility 100, best practices 100, SEO 100**; LCP 1.1s, CLS 0 in this local run. These are measurements, not guaranteed production scores.
 - [x] Verify SEO/canonicals, social metadata, sitemap, robots, 404 handling, all five source families and built internal links/assets.
-- [ ] Enable Pages deployment, verify daily/manual operation, test failure retention and coordinate legacy-site links.
+- [x] Enable Pages deployment, verify the live site and demonstrate that failed validation prevents deployment. Expose manual refresh in GitHub Actions.
+- [ ] Observe the next scheduled daily refresh and coordinate legacy-site links with their maintainers.
 
 Acceptance: live `https://pnp.github.io/spfx/`, successful manual deployment and subsequent scheduled refresh, observable failure behavior, accepted visual/accessibility/performance checks.
 
@@ -259,10 +262,10 @@ npm run samples:audit
 
 Review the baseline/report changes; do not use baseline regeneration as an automatic way to make CI green. Auditing can be repeated offline against the saved complete source snapshot. Run collection again to refresh sources.
 
-## Remaining decisions before UI implementation
+## Remaining review and migration decisions
 
-- [ ] Approve the exact visual mockup and Parker asset provenance/license.
+- [ ] Review the deployed visual experience; Parker asset provenance and MIT attribution have been verified.
 - [ ] Review missing-metadata coverage and decide any justified support-folder exclusions.
-- [ ] Approve public-catalog treatment of incomplete legacy records and any launch-blocking defects.
+- [x] Render incomplete legacy metadata with explicit review notes, canonical source links and honest preview fallbacks; retain source remediation tracking.
 - [ ] Define a genuine cross-repository Popular signal, or explicitly defer that sort.
 - [ ] Agree migration/redirect ownership, analytics/consent policy and the launch performance test profile.
