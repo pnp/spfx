@@ -1,5 +1,18 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type APIRequestContext } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { assertCatalog, type Catalog } from '../../src/lib/types';
+
+async function publishedCatalog(
+  request: APIRequestContext,
+  baseURL: string | undefined,
+): Promise<Catalog> {
+  if (!baseURL) throw new Error('The gallery test base URL is missing.');
+  const response = await request.get(new URL('catalog.json', baseURL).href);
+  expect(response.ok()).toBe(true);
+  const value: unknown = await response.json();
+  assertCatalog(value);
+  return value;
+}
 
 test('Microsoft 365-first identity and aligned community navigation', async ({
   page,
@@ -71,7 +84,15 @@ test('search, meaningful empty state and reset work', async ({ page }) => {
 test('experience and technology combine, survive reload and browser history', async ({
   page,
   isMobile,
+  request,
+  baseURL,
 }) => {
+  const catalog = await publishedCatalog(request, baseURL);
+  const expected = catalog.samples.filter(
+    (sample) =>
+      sample.experiences.includes('Copilot') &&
+      sample.technologies.includes('React'),
+  ).length;
   await page.goto('./');
   await page.getByRole('button', { name: /^Copilot/ }).click();
   if (isMobile) await page.locator('.filter-drawer > summary').click();
@@ -79,9 +100,9 @@ test('experience and technology combine, survive reload and browser history', as
   await react.check();
   await expect(page).toHaveURL(/experience=Copilot/);
   await expect(page).toHaveURL(/technology=React/);
-  const total = Number(await page.locator('#results-count strong').innerText());
-  expect(total).toBeGreaterThan(0);
-  expect(total).toBeLessThan(100);
+  await expect(page.locator('#results-count strong')).toHaveText(
+    expected.toLocaleString('en'),
+  );
   await page.reload();
   await expect(react).toBeChecked();
   await expect(page.getByRole('button', { name: /^Copilot/ })).toHaveAttribute(
@@ -180,7 +201,9 @@ test('failed remote preview recovers to the honest local placeholder', async ({
 test('the complete directory works without JavaScript', async ({
   browser,
   baseURL,
+  request,
 }) => {
+  const catalog = await publishedCatalog(request, baseURL);
   const context = await browser.newContext({ javaScriptEnabled: false });
   try {
     const page = await context.newPage();
@@ -188,8 +211,8 @@ test('the complete directory works without JavaScript', async ({
     await expect(
       page.getByRole('heading', { name: 'The whole collection.', exact: true }),
     ).toBeVisible();
-    expect(await page.locator('.directory-list a').count()).toBeGreaterThan(
-      700,
+    await expect(page.locator('.directory-list a')).toHaveCount(
+      catalog.totals.samples,
     );
     await page.locator('.directory-list a').first().click();
     await expect(
@@ -250,4 +273,135 @@ test('filter drawer follows mobile and desktop layout transitions', async ({
   await expect(page.locator('.filter-drawer')).toHaveJSProperty('open', true);
   await page.setViewportSize({ width: 768, height: 1000 });
   await expect(page.locator('.filter-drawer')).toHaveJSProperty('open', false);
+});
+
+test('visible catalog metrics reflect the refreshed data, not fixed counts', async ({
+  page,
+  request,
+  baseURL,
+}) => {
+  const catalog = await publishedCatalog(request, baseURL);
+  await page.goto('./');
+  await expect(page.locator('[data-stat="samples"]')).toHaveText(
+    catalog.totals.samples.toLocaleString('en'),
+  );
+  await expect(page.locator('[data-stat="contributors"]')).toHaveText(
+    catalog.totals.contributors.toLocaleString('en'),
+  );
+  await expect(page.locator('[data-stat="sources"]')).toHaveText(
+    catalog.sources.length.toLocaleString('en'),
+  );
+  await expect(page.locator('.catalog-totals')).not.toContainText('100%');
+  await expect(page.locator('.hero-proof')).toContainText(
+    'Tens of millions of daily active users.',
+  );
+  await expect(page.locator('.hero-proof [data-stat]')).toHaveCount(0);
+  for (const facet of catalog.facets.experiences) {
+    await expect(
+      page.locator(`button[data-experience="${facet.value}"] .tab-count`),
+    ).toHaveText(String(facet.count));
+  }
+});
+
+test('Connections remains discoverable without a promotional logo', async ({
+  page,
+  request,
+  baseURL,
+}) => {
+  const catalog = await publishedCatalog(request, baseURL);
+  const connections = catalog.facets.experiences.find(
+    (facet) => facet.value === 'Connections',
+  );
+  if (!connections)
+    throw new Error('Connections was removed from the experience facets.');
+  await page.goto('./?experience=Connections');
+  await expect(
+    page.getByRole('searchbox', { name: 'Search samples', exact: true }),
+  ).toBeEnabled();
+  await expect(
+    page.getByRole('button', { name: /^Connections/ }),
+  ).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('#results-count strong')).toHaveText(
+    connections.count.toLocaleString('en'),
+  );
+  await expect(
+    page.locator('#sample-grid [data-card-experience]').first(),
+  ).toHaveText('Connections');
+  await expect(page.locator('.hero-art')).not.toContainText('Connections');
+  await expect(page.locator('.hero-art .tile-connections')).toHaveCount(0);
+  await expect(page.locator('.hero-art .product-logo')).toHaveCount(4);
+});
+
+test('official artwork and community invitations are available and accessible', async ({
+  page,
+}) => {
+  await page.goto('./');
+  for (const product of ['copilot', 'sharepoint', 'teams', 'power-automate']) {
+    const logo = page.locator(`.hero-art img[src$="/brand/${product}.webp"]`);
+    await expect(logo).toBeVisible();
+    await expect
+      .poll(() =>
+        logo.evaluate(
+          (image) =>
+            image instanceof HTMLImageElement &&
+            image.complete &&
+            image.naturalWidth > 0,
+        ),
+      )
+      .toBe(true);
+  }
+  await expect(page.locator('.community-ribbon a')).toHaveAttribute(
+    'href',
+    'https://aka.ms/community/calls',
+  );
+  await page.goto('./contributing/');
+  await expect(page.locator('.recognition-panel')).toHaveCount(1);
+  await expect(page.locator('.recognition-panel img')).toHaveAttribute(
+    'src',
+    /\/images\/brand\/contributor-badge\.webp$/,
+  );
+  await expect
+    .poll(() =>
+      page
+        .locator('.recognition-panel img')
+        .evaluate(
+          (image) =>
+            image instanceof HTMLImageElement &&
+            image.complete &&
+            image.naturalWidth > 0,
+        ),
+    )
+    .toBe(true);
+  await expect(page.locator('.recognition-panel .button')).toHaveAttribute(
+    'href',
+    'https://pnp.github.io/recognitionprogram/',
+  );
+  await expect(page.locator('#present-a-demo')).toContainText('availability');
+  await expect(page.locator('#present-a-demo .guide-link')).toHaveAttribute(
+    'href',
+    'https://aka.ms/community/request/demo',
+  );
+  await expect(page.locator('#community-calls .guide-link')).toHaveAttribute(
+    'href',
+    'https://aka.ms/community/calls',
+  );
+  const contributing = await new AxeBuilder({ page })
+    .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])
+    .analyze();
+  expect(contributing.violations).toEqual([]);
+  await page.goto('./contributors/');
+  await expect(page.locator('.recognition-panel')).toHaveCount(1);
+  await expect(page.locator('.recognition-panel img')).toBeVisible();
+  await expect
+    .poll(() =>
+      page
+        .locator('.recognition-panel img')
+        .evaluate(
+          (image) =>
+            image instanceof HTMLImageElement &&
+            image.complete &&
+            image.naturalWidth > 0,
+        ),
+    )
+    .toBe(true);
 });

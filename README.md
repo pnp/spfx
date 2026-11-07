@@ -8,8 +8,31 @@ Microsoft 365 & Power Platform Community navigation.
 
 [![Gallery build and deployment](https://github.com/pnp/spfx/actions/workflows/refresh-metadata.yml/badge.svg?branch=main)](https://github.com/pnp/spfx/actions/workflows/refresh-metadata.yml)
 
+[![Preview of the SPFx Samples gallery](./docs/images/gallery-preview.webp)](https://pnp.github.io/spfx/)
+
 The Astro gallery is published from `main` through GitHub Actions and GitHub
 Pages. Use the gallery link above or the repository's About link to test it.
+The screenshot is an illustration of the experience; open the site for current counts.
+
+## Sharing is caring
+
+This gallery is built by the community, for the community. Share useful code,
+help someone get started, and bring what you learn back to others.
+
+- **[Join the community calls](https://aka.ms/community/calls)** to keep up with
+  Copilot, Microsoft 365 and Power Platform.
+- **[Sign up to present a demo](https://aka.ms/community/request/demo)** if you
+  have a pattern, solution or idea to show. Fill in the form and the team will
+  arrange a slot based on your availability.
+- **[Contribute a sample or improve the gallery](./CONTRIBUTING.md)**. Source
+  samples stay in their original repositories; gallery improvements belong here.
+
+[<img src="./public/images/brand/contributor-badge.webp" width="180" height="180" alt="Microsoft 365 and Power Platform Community Contributor badge">](https://pnp.github.io/recognitionprogram/)
+
+Sample contributors can opt in to the
+[PnP Recognition Program](https://pnp.github.io/recognitionprogram/) for community
+contributor recognition. Badges are handled by that program, not awarded
+automatically by this gallery.
 
 ## Run locally
 
@@ -45,8 +68,9 @@ so the same command works after a clean checkout and source refresh.
 
 ## The experience
 
-- Microsoft 365-first, with **Copilot, SharePoint, Teams and Connections** visibly
-  represented in the story, artwork and discovery tabs.
+- Microsoft 365-first, with official **Copilot, SharePoint, Teams and Power
+  Automate** logos alongside Parker. **Connections remains a discovery tab and
+  part of the text**, but no longer has a promotional hero logo.
 - Search across sample text, technology, source and contributors.
 - Combined component, technology, SPFx-version and source filters: OR within a
   group, AND between groups; dynamic counts and shareable URL state.
@@ -68,6 +92,14 @@ repositories. [Collection](./.github/scripts/collect-samples.mjs) pins each
 revision and reads original metadata/package/component manifests. It does not
 import merged feeds that would duplicate extensions.
 
+| Information              | Authoritative source                                                            |
+| ------------------------ | ------------------------------------------------------------------------------- |
+| Web parts                | [pnp/sp-dev-fx-webparts](https://github.com/pnp/sp-dev-fx-webparts)             |
+| Extensions               | [pnp/sp-dev-fx-extensions](https://github.com/pnp/sp-dev-fx-extensions)         |
+| Copilot components       | [pnp/spfx-copilot-components](https://github.com/pnp/spfx-copilot-components)   |
+| Reference scenarios      | [pnp/spfx-reference-scenarios](https://github.com/pnp/spfx-reference-scenarios) |
+| Adaptive Card Extensions | [pnp/sp-dev-fx-aces](https://github.com/pnp/sp-dev-fx-aces)                     |
+
 1. `npm run samples:refresh` updates local `.metadata/samples.json` and the audit.
 2. `npm run catalog:generate` creates the typed public catalog, compact discovery
    index and cached primary screenshot previews.
@@ -75,6 +107,13 @@ import merged feeds that would duplicate extensions.
 
 Generated snapshots, public catalog files, previews and build output are ignored
 by Git. The refresh workflow recreates them from source.
+
+All displayed sample, contributor, repository and filter counts are computed
+from the collected catalog during each refresh. No catalog totals are manually
+maintained in page templates. The ecosystem statement about tens of millions
+of daily active users is maintainer-approved context about customer- and
+partner-built SPFx components and solutions, not a live gallery-traffic counter
+or a number inferred from sample metadata.
 
 Known source defects remain visible in sample details and
 [catalog health](./src/pages/catalog-health.astro). Missing descriptions or
@@ -107,8 +146,8 @@ deployment job receives Pages/OIDC write permissions. A failed collection,
 quality gate or build cannot replace the last successful deployment.
 
 Pages is configured with **Source: GitHub Actions**, HTTPS and a `github-pages`
-environment restricted to `main`. The [verified deployment](https://github.com/pnp/spfx/actions/runs/42277784440)
-passed the Linux build, 90 unit tests and 22 browser checks. All 22 desktop/mobile
+environment restricted to `main`. The [deployment workflow](https://github.com/pnp/spfx/actions/workflows/refresh-metadata.yml)
+passed the Linux build, unit tests and browser checks. Desktop/mobile
 checks were also run successfully against the public site, including discovery,
 saved collections, themes, source actions, fallbacks and accessibility.
 
@@ -122,7 +161,10 @@ GitHub schedules are best-effort.
 - [Source repairs, PRs and deferred preview backlog](./sample-tracking.md)
 - [Current metadata quality report](./.metadata/quality-report.md)
 
-The Parker artwork and fonts are reused from the community Script Samples
-redesign under its MIT license; the [asset notice](./public/asset-license.txt)
-preserves attribution. Screenshot rights remain with their original sample
-owners. The gallery adds no visitor tracking.
+Parker and the community fonts are shared with the Script Samples gallery.
+The supplied official product logos and contributor badge are used without
+redrawing their artwork. The abstract side backgrounds come from the
+[Copilot UX components reference gallery](https://pnp.github.io/spfx-copilot-components/).
+The [asset notice](./public/asset-license.txt) records provenance and preserves
+the applicable MIT notices and separate branding rights. Screenshot rights
+remain with their original sample owners. The gallery adds no visitor tracking.

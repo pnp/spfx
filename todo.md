@@ -82,6 +82,17 @@ The [repair tracker](./sample-tracking.md) distinguishes landed fixes from this 
 - [Verified GitHub Pages deployment](https://github.com/pnp/spfx/actions/runs/42277784440): Linux CI passed the build, 90 unit tests and 22 browser checks; all 22 browser checks also passed against the public site.
 - Public checks confirmed 794 directory links, a sample detail route, optimized image/font delivery, catalog/search JSON, sitemap, robots and the branded 404. The first failed build did not deploy; missing clean-checkout catalog inputs were fixed before the successful release.
 
+### Community refinement (2026-11-07)
+
+- [x] Use the supplied official Copilot, SharePoint, Teams and Power Automate logos with Parker; keep artwork proportional and optimized.
+- [x] Remove Connections from hero/promotional logos, while retaining its filtering tab, classifications, relevant text and original source screenshots.
+- [x] Add the supplied contributor badge with opt-in recognition guidance, community-call promotion and demo signup based on availability.
+- [x] Celebrate the customer/partner SPFx ecosystem's tens of millions of daily active users as maintainer-approved context, not fabricated live telemetry.
+- [x] Derive sample, contributor, source and filter counts from each refreshed catalog; add exact-count and Connections-preservation regression checks.
+- [x] Add the reference gallery's abstract side artwork, real-site README/social previews and root contributor guidance with source and asset attribution.
+- [x] Verify 90 unit tests, 28 desktop/mobile checks and a type check with zero diagnostics; local Lighthouse mobile scores remain **99 performance / 100 accessibility / 100 best practices / 100 SEO**.
+- [ ] Publish this refinement and verify it on the live Pages site.
+
 - [x] Check JSON parsing/root shapes, required text, dates, products, key/value metadata, authors, previews and references.
 - [x] Check names/URLs for duplicates and verify sample links belong to the correct repository and sample directory.
 - [x] Check HTTPS/URL syntax, preview ordering and useful alt text.
@@ -234,7 +245,8 @@ Acceptance: all eligible source records reconcile with the public catalog; no du
 - [x] Measure the production preview with Lighthouse mobile simulated throttling: **performance 99, accessibility 100, best practices 100, SEO 100**; LCP 1.1s, CLS 0 in this local run. These are measurements, not guaranteed production scores.
 - [x] Verify SEO/canonicals, social metadata, sitemap, robots, 404 handling, all five source families and built internal links/assets.
 - [x] Enable Pages deployment, verify the live site and demonstrate that failed validation prevents deployment. Expose manual refresh in GitHub Actions.
-- [ ] Observe the next scheduled daily refresh and coordinate legacy-site links with their maintainers.
+- [x] Observe an actual scheduled refresh: [2026-11-07 scheduled run](https://github.com/pnp/spfx/actions/runs/42366683246) succeeded and refreshed the public catalog.
+- [ ] Coordinate legacy-site links with their maintainers.
 
 Acceptance: live `https://pnp.github.io/spfx/`, successful manual deployment and subsequent scheduled refresh, observable failure behavior, accepted visual/accessibility/performance checks.
 

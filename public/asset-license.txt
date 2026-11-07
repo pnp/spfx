@@ -2,9 +2,32 @@ Community Parker artwork and Parker font files are reused from pnp/script-sample
 commit eac633e4ffe734b6e34c7d038dcd63fc9767eb6d:
 https://github.com/pnp/script-samples/tree/eac633e4ffe734b6e34c7d038dcd63fc9767eb6d/site
 
+The supplied Parker PNG is identical to the community artwork above.
+
+The Copilot, SharePoint, Teams and Power Automate product logos and the
+Community Contributor badge were supplied by the maintainers. Optimized
+derivatives preserve the original artwork and proportions. These branding
+assets retain their respective owners' copyright and trademark rights;
+the site's MIT code license does not transfer those rights.
+
+Source asset names:
+- copilot.png
+- SharePoint_512.png
+- Teams_512.png
+- powerautomate_256x256.png
+- badge-community-contributor-main-badge.png
+
+The decorative side artwork is reused from pnp/spfx-copilot-components,
+commit 7d9b4c0f7da67cfe54dc60be3da371ada2c2c81e:
+https://github.com/pnp/spfx-copilot-components/tree/7d9b4c0f7da67cfe54dc60be3da371ada2c2c81e/site/public/images
+
+The following MIT notice covers the community Parker/font and side-background
+assets identified above:
+
 MIT License
 
 Copyright (c) 2021 Microsoft 365 Community
+Copyright (c) 2026 Microsoft 365 & Power Platform Community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

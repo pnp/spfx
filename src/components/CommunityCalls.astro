@@ -1,0 +1,11 @@
+---
+import { ArrowUpRight, CalendarDays } from '@lucide/astro';
+import { COMMUNITY } from '../lib/community';
+---
+<aside class="community-ribbon" aria-label="Community calls">
+  <div class="container community-ribbon-inner">
+    <CalendarDays size={23} aria-hidden="true" />
+    <p>Keep up with <strong>Copilot, Microsoft 365 &amp; Power Platform.</strong> Learn together on the community calls.</p>
+    <a href={COMMUNITY.calls}>Join the community calls <ArrowUpRight size={15} aria-hidden="true" /></a>
+  </div>
+</aside>

@@ -1,13 +1,13 @@
 # SPFx sample metadata quality report
 
-Collected: 2026-11-06T19:09:26.801Z. Audited: 2026-11-06T19:09:36.097Z.
+Collected: 2026-11-07T14:16:10.356Z. Audited: 2026-11-07T14:33:00.865Z.
 
 This is a metadata/content audit, not a sample build or a visual review. Older SPFx versions are not defects.
 Errors and warnings are retained; parseable records are not silently discarded or deduplicated.
 
 | Repository | Commit | Folders | Metadata files | Records | Missing metadata | Errors | Warnings |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| pnp/sp-dev-fx-webparts | 61d6542e0ff5964004fa4dbd001ec52f3f7b495b | 475 | 475 | 495 | 0 | 32 | 605 |
+| pnp/sp-dev-fx-webparts | 52e10a165aeaaacd73bd25ebdf0028d047843dc7 | 475 | 475 | 495 | 0 | 32 | 605 |
 | pnp/sp-dev-fx-extensions | b3df920173cd6ad726b11367d754d1d846034252 | 148 | 147 | 147 | 0 | 6 | 282 |
 | pnp/spfx-copilot-components | 7d9b4c0f7da67cfe54dc60be3da371ada2c2c81e | 47 | 47 | 47 | 0 | 0 | 0 |
 | pnp/spfx-reference-scenarios | 746c2fcb69cec30e7a9182ed7dd99c09bb02a83f | 21 | 21 | 21 | 0 | 2 | 14 |

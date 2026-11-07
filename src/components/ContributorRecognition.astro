@@ -1,0 +1,21 @@
+---
+import { ArrowRight, ArrowUpRight } from '@lucide/astro';
+import { sitePath } from '../lib/catalog';
+import { COMMUNITY } from '../lib/community';
+const contributeUrl = Astro.url.pathname.endsWith('/contributing/') ? '#choose-a-source' : sitePath('/contributing/');
+---
+<section class="recognition-panel" aria-label="Community contributor recognition">
+  <a class="recognition-art" href={COMMUNITY.recognition} aria-label="Learn about the community contributor badge">
+    <img src={sitePath('/images/brand/contributor-badge.webp')} alt="Microsoft 365 and Power Platform Community Contributor badge" width="640" height="640" loading="lazy" decoding="async" />
+  </a>
+  <div class="recognition-copy">
+    <p class="eyebrow">Sharing is caring.</p>
+    <h2>Share what you know.</h2>
+    <p>Contribute a sample, improve the docs or help someone get started. Sample contributors can opt in to the PnP Recognition Program and share their community contributor badge.</p>
+    <p class="demo-invitation">Have something to show? <a href={COMMUNITY.demo}>Sign up for a community call demo</a>. Fill in the form and we'll arrange a slot based on your availability.</p>
+  </div>
+  <div class="recognition-actions">
+    <a class="button button-light" href={COMMUNITY.recognition}>Contributor recognition <ArrowUpRight size={15} aria-hidden="true" /></a>
+    <a class="recognition-contribute" href={contributeUrl}>Ways to contribute <ArrowRight size={15} aria-hidden="true" /></a>
+  </div>
+</section>

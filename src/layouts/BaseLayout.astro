@@ -1,13 +1,16 @@
 ---
-import { ArrowUpRight, ArrowRight, GitFork, Menu, Moon, Sun } from '@lucide/astro';
+import { ArrowUpRight, GitFork, Menu, Moon, Sun } from '@lucide/astro';
+import ContributorRecognition from '../components/ContributorRecognition.astro';
 import { catalog, sitePath } from '../lib/catalog';
+import { COMMUNITY } from '../lib/community';
 import '../styles/global.css';
 
-interface Props { title?: string; description?: string; image?: string }
+interface Props { title?: string; description?: string; image?: string; showRecognition?: boolean }
 const {
   title = 'SPFx Samples',
   description = 'Community-built Microsoft 365 experiences. Discover SPFx samples for Copilot, SharePoint, Teams, Viva Connections and more.',
   image,
+  showRecognition = true,
 } = Astro.props;
 const pageTitle = title === 'SPFx Samples' ? 'SPFx Samples | Build for Microsoft 365' : `${title} | SPFx Samples`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -21,7 +24,7 @@ const nav = [
 const current = (href: string) => href === '/'
   ? Astro.url.pathname === sitePath('/') || Astro.url.pathname.startsWith(sitePath('/samples/'))
   : Astro.url.pathname.startsWith(sitePath(href));
-const socialImage = new URL(image ?? sitePath('/images/sample-preview-fallback.png'), Astro.site);
+const socialImage = new URL(image ?? sitePath('/images/gallery-social.webp'), Astro.site);
 ---
 <!doctype html>
 <html lang="en" data-theme="light">
@@ -63,14 +66,14 @@ const socialImage = new URL(image ?? sitePath('/images/sample-preview-fallback.p
         </a>
         <div class="header-actions">
           <nav class="desktop-nav" aria-label="Primary navigation">
-            <a href="https://aka.ms/community/home">Community <ArrowUpRight size={12} aria-hidden="true" /></a>
+            <a href={COMMUNITY.home}>Community <ArrowUpRight size={12} aria-hidden="true" /></a>
             {nav.map((item) => <a href={sitePath(item.href)} aria-current={current(item.href) ? 'page' : undefined}>{item.title}</a>)}
             <a class="github-nav" href="https://github.com/pnp/spfx"><GitFork size={16} aria-hidden="true" /> GitHub</a>
           </nav>
           <details class="mobile-nav">
             <summary aria-label="Open navigation"><Menu size={23} aria-hidden="true" /></summary>
             <nav aria-label="Mobile navigation">
-              <a href="https://aka.ms/community/home">Community <ArrowUpRight size={12} aria-hidden="true" /></a>
+              <a href={COMMUNITY.home}>Community <ArrowUpRight size={12} aria-hidden="true" /></a>
               {nav.map((item) => <a href={sitePath(item.href)} aria-current={current(item.href) ? 'page' : undefined}>{item.title}</a>)}
               <a href="https://github.com/pnp/spfx">GitHub</a>
             </nav>
@@ -82,16 +85,15 @@ const socialImage = new URL(image ?? sitePath('/images/sample-preview-fallback.p
       </div>
     </header>
     <main id="main-content" tabindex="-1"><slot /></main>
-    <section class="community-banner container" aria-label="Build with the community">
-      <div class="community-banner-icon" aria-hidden="true"><img src={sitePath('/images/parker.png')} alt="" width="47" height="47" loading="lazy" /></div>
-      <div><p class="eyebrow">Good code gets better together</p><h2>Your next idea belongs here.</h2><p>Share a sample. Help a developer. Build something that makes work better.</p></div>
-      <a class="button button-light" href={sitePath('/contributing/')}>Become a contributor <ArrowRight size={17} aria-hidden="true" /></a>
-    </section>
+    {showRecognition && <div class="container"><ContributorRecognition /></div>}
     <footer class="site-footer">
       <div class="container footer-top">
         <div class="footer-brand"><strong>Microsoft 365 &amp; Power Platform Community</strong><p>Small building blocks. A world of possibilities.</p><span class="footer-freshness">{catalog.totals.samples.toLocaleString('en')} samples · {catalog.sources.length} source repositories</span></div>
         <nav aria-label="Footer navigation">
-          <a href="https://aka.ms/community/home">Community home <ArrowUpRight size={12} aria-hidden="true" /></a>
+          <a href={COMMUNITY.home}>Community home <ArrowUpRight size={12} aria-hidden="true" /></a>
+          <a href={COMMUNITY.calls}>Community calls <ArrowUpRight size={12} aria-hidden="true" /></a>
+          <a href={COMMUNITY.demo}>Present a demo <ArrowUpRight size={12} aria-hidden="true" /></a>
+          <a href={COMMUNITY.recognition}>Contributor recognition <ArrowUpRight size={12} aria-hidden="true" /></a>
           <a href={sitePath('/catalog.json')}>Catalog JSON</a>
           <a href={sitePath('/catalog-health/')}>Catalog health</a>
           <a href="https://github.com/pnp/spfx/issues/new">Report an issue</a>
