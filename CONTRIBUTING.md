@@ -70,6 +70,9 @@ Before submitting a pull request:
 - Keep changes focused and explain the intended behavior.
 - Include desktop/mobile screenshots for visual changes, including dark mode.
 - Preserve keyboard navigation, accessible labels, contrast and reduced motion.
+- Check both normal and reduced-motion preferences. Reduced-motion queries
+  should contain motion overrides only, never the styles that box, space or
+  display page content.
 - Update the README preview when the visible experience materially changes.
 - Keep generated snapshots, catalog JSON, preview caches and build output out
   of commits; [the ignore rules](./.gitignore) identify them.

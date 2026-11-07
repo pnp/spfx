@@ -97,6 +97,11 @@ The hero story is limited to Copilot, SharePoint and Teams with Parker; Power
 Automate is not promoted as part of the SPFx story. The contributor badge is
 capped at 500px intrinsic height while retaining its smaller responsive display sizes.
 
+The contributor directory now has a separate boxed recognition section, a 40px
+gap before its heading, and an independently boxed, visibly labeled search area.
+Community layout styles apply in both normal and reduced-motion modes; regression
+checks cover spacing, filtering and accessibility on desktop and mobile.
+
 - [x] Check JSON parsing/root shapes, required text, dates, products, key/value metadata, authors, previews and references.
 - [x] Check names/URLs for duplicates and verify sample links belong to the correct repository and sample directory.
 - [x] Check HTTPS/URL syntax, preview ordering and useful alt text.

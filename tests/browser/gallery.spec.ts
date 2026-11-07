@@ -420,3 +420,66 @@ test('official artwork and community invitations are available and accessible', 
     )
     .toBe(true);
 });
+
+test('contributors recognition is boxed and separated from working search in both motion modes', async ({
+  page,
+  request,
+  baseURL,
+}) => {
+  const catalog = await publishedCatalog(request, baseURL);
+  const contributor = catalog.contributors[0];
+  if (!contributor) throw new Error('The contributor directory is empty.');
+  const query = contributor.account ?? contributor.name;
+  const expected = catalog.contributors.filter((person) =>
+    `${person.name} ${person.account ?? ''}`
+      .toLocaleLowerCase()
+      .includes(query.toLocaleLowerCase().trim()),
+  ).length;
+
+  for (const reducedMotion of ['no-preference', 'reduce'] as const) {
+    await page.emulateMedia({ reducedMotion });
+    await page.goto('./contributors/');
+    const recognition = page.locator(
+      '.contributors-recognition .recognition-panel',
+    );
+    await expect(recognition).toHaveCSS('display', 'grid');
+    const boxStyle = await recognition.evaluate((element) => ({
+      background: getComputedStyle(element).backgroundImage,
+      border: parseFloat(getComputedStyle(element).borderTopWidth),
+      padding: parseFloat(getComputedStyle(element).paddingTop),
+    }));
+    expect(boxStyle.background).toContain('linear-gradient');
+    expect(boxStyle.border).toBeGreaterThanOrEqual(1);
+    expect(boxStyle.padding).toBeGreaterThanOrEqual(20);
+
+    const panel = await recognition.boundingBox();
+    const heading = await page
+      .locator('#contributor-directory-heading')
+      .boundingBox();
+    if (!panel || !heading)
+      throw new Error('The contributors sections are not laid out.');
+    expect(heading.y - panel.y - panel.height).toBeGreaterThanOrEqual(32);
+    await expect(page.locator('.contributor-tools')).toHaveCSS(
+      'border-top-width',
+      '1px',
+    );
+    await page
+      .getByRole('searchbox', { name: 'Name or GitHub account', exact: true })
+      .fill(query);
+    await expect(page.locator('[data-contributor]:visible')).toHaveCount(
+      expected,
+    );
+    await expect(page.locator('#contributor-count')).toHaveText(
+      `${expected.toLocaleString('en')} community contributors`,
+    );
+    const accessibility = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])
+      .analyze();
+    expect(accessibility.violations).toEqual([]);
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+  }
+});

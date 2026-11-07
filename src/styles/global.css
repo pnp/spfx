@@ -1490,7 +1490,7 @@ html[data-theme='dark'] .theme-moon {
   font-size: 23px;
   font-weight: 600;
 }
-.contributor-card h2 {
+.contributor-card h3 {
   font-size: 13px;
   font-weight: 600;
   letter-spacing: -0.02em;
@@ -1509,14 +1509,51 @@ html[data-theme='dark'] .theme-moon {
   margin-top: auto;
 }
 .contributor-tools {
-  margin-bottom: 25px;
+  margin-bottom: 0;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   gap: 20px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
 }
 .contributor-tools input {
-  max-width: 360px;
+  max-width: none;
+}
+.contributors-recognition {
+  padding-bottom: 40px;
+}
+.contributors-recognition .recognition-panel {
+  margin-block: 0;
+}
+.contributor-directory {
+  display: grid;
+  gap: 24px;
+}
+.contributor-directory-heading h2 {
+  margin-bottom: 7px;
+  font-size: 28px;
+  line-height: 1.2;
+}
+.contributor-directory-heading p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+.contributor-search-field {
+  display: grid;
+  flex: 1;
+  gap: 8px;
+  max-width: 520px;
+}
+.contributor-search-field label {
+  font-size: 12px;
+  font-weight: 600;
+}
+.contributor-tools #contributor-count {
+  padding-bottom: 12px;
 }
 .text-input {
   width: 100%;
@@ -2250,6 +2287,13 @@ html[data-theme='dark'] .theme-moon {
   .contributor-tools input {
     max-width: none;
   }
+  .contributor-search-field {
+    width: 100%;
+    max-width: none;
+  }
+  .contributor-tools #contributor-count {
+    padding-bottom: 0;
+  }
 }
 @media (max-width: 450px) {
   .container {
@@ -2527,7 +2571,7 @@ html[data-theme='dark'] .theme-moon {
   .contributor-card {
     padding: 20px 12px;
   }
-  .contributor-card h2 {
+  .contributor-card h3 {
     font-size: 12px;
   }
   .contributor-card > img,
@@ -2574,267 +2618,265 @@ html[data-theme='dark'] .theme-moon {
     font-size: 28px;
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+.community-ribbon {
+  border-block: 1px solid var(--line);
+  background: var(--blue-soft);
+}
+.community-ribbon-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-block: 18px;
+  color: var(--blue);
+}
+.community-ribbon p {
+  flex: 1;
+  margin: 0;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.65;
+}
+.community-ribbon strong {
+  font-weight: 600;
+}
+.community-ribbon a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.catalog-backdrop {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+.catalog-intro {
+  border-top: 0;
+}
+.recognition-panel {
+  display: grid;
+  grid-template-columns: 152px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 28px;
+  margin-block: 24px 42px;
+  padding: 28px 32px;
+  border: 1px solid #245eaa;
+  border-radius: 14px;
+  background: linear-gradient(110deg, #123b75, #0d4c9f);
+  color: #fff;
+}
+.recognition-art {
+  display: block;
+}
+.recognition-art img {
+  display: block;
+  width: 152px;
+  height: 152px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(0, 20, 55, 0.18));
+}
+.recognition-panel .eyebrow {
+  color: #c4ddff;
+  font-size: 9px;
+  margin-bottom: 5px;
+}
+.recognition-panel h2 {
+  margin-bottom: 9px;
+  font-size: 27px;
+  letter-spacing: -0.035em;
+}
+.recognition-copy > p:not(.eyebrow) {
+  margin-bottom: 10px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: #d7e7fc;
+}
+.recognition-copy > p:last-child {
+  margin-bottom: 0;
+}
+.recognition-panel a:not(.button) {
+  color: #fff;
+}
+.recognition-panel .demo-invitation {
+  font-size: 11px;
+}
+.recognition-actions {
+  display: grid;
+  justify-items: start;
+  gap: 15px;
+}
+.recognition-actions .button {
+  white-space: nowrap;
+}
+.recognition-contribute {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.wide-guide > .recognition-panel {
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 18px 24px;
+  margin: 0;
+}
+.wide-guide > .recognition-panel .recognition-art {
+  grid-row: span 2;
+}
+.wide-guide > .recognition-panel .recognition-art img {
+  width: 160px;
+  height: 160px;
+}
+.wide-guide > .recognition-panel .recognition-actions {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px 22px;
+}
+@media (min-width: 1000px) {
+  .catalog-backdrop::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image:
+      url('/images/backgrounds/side-right.webp'),
+      url('/images/backgrounds/side-left.webp');
+    background-repeat: no-repeat;
+    background-position:
+      right 150px,
+      left 150px;
+    background-size: min(600px, 48vw) auto;
+    opacity: 0.55;
+    pointer-events: none;
   }
-
-  .community-ribbon {
-    border-block: 1px solid var(--line);
-    background: var(--blue-soft);
+  html[data-theme='dark'] .catalog-backdrop::before {
+    opacity: 0.2;
   }
-  .community-ribbon-inner {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding-block: 18px;
-    color: var(--blue);
-  }
-  .community-ribbon p {
-    flex: 1;
-    margin: 0;
-    color: var(--ink);
-    font-size: 13px;
-    line-height: 1.65;
-  }
-  .community-ribbon strong {
-    font-weight: 600;
-  }
-  .community-ribbon a {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--blue);
-    font-size: 12px;
-    font-weight: 600;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-  .catalog-backdrop {
-    position: relative;
-    isolation: isolate;
-    overflow: clip;
-  }
-  .catalog-intro {
-    border-top: 0;
+}
+@media (max-width: 1100px) {
+  .product-logo {
+    width: 32px;
+    height: 32px;
   }
   .recognition-panel {
-    display: grid;
-    grid-template-columns: 152px minmax(0, 1fr) auto;
-    align-items: center;
-    gap: 28px;
-    margin-block: 24px 42px;
-    padding: 28px 32px;
-    border: 1px solid #245eaa;
-    border-radius: 14px;
-    background: linear-gradient(110deg, #123b75, #0d4c9f);
-    color: #fff;
+    grid-template-columns: 130px minmax(0, 1fr);
+    gap: 16px 24px;
+    padding: 26px;
   }
   .recognition-art {
-    display: block;
-  }
-  .recognition-art img {
-    display: block;
-    width: 152px;
-    height: 152px;
-    object-fit: contain;
-    filter: drop-shadow(0 6px 12px rgba(0, 20, 55, 0.18));
-  }
-  .recognition-panel .eyebrow {
-    color: #c4ddff;
-    font-size: 9px;
-    margin-bottom: 5px;
-  }
-  .recognition-panel h2 {
-    margin-bottom: 9px;
-    font-size: 27px;
-    letter-spacing: -0.035em;
-  }
-  .recognition-copy > p:not(.eyebrow) {
-    margin-bottom: 10px;
-    font-size: 12px;
-    line-height: 1.8;
-    color: #d7e7fc;
-  }
-  .recognition-copy > p:last-child {
-    margin-bottom: 0;
-  }
-  .recognition-panel a:not(.button) {
-    color: #fff;
-  }
-  .recognition-panel .demo-invitation {
-    font-size: 11px;
-  }
-  .recognition-actions {
-    display: grid;
-    justify-items: start;
-    gap: 15px;
-  }
-  .recognition-actions .button {
-    white-space: nowrap;
-  }
-  .recognition-contribute {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    font-weight: 600;
-    text-decoration: none;
-  }
-  .wide-guide > .recognition-panel {
-    grid-template-columns: 160px minmax(0, 1fr);
-    gap: 18px 24px;
-    margin: 0;
-  }
-  .wide-guide > .recognition-panel .recognition-art {
     grid-row: span 2;
   }
-  .wide-guide > .recognition-panel .recognition-art img {
-    width: 160px;
-    height: 160px;
+  .recognition-art img {
+    width: 130px;
+    height: 130px;
   }
-  .wide-guide > .recognition-panel .recognition-actions {
+  .recognition-actions {
     grid-column: 2;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 14px 22px;
   }
-
-  @media (min-width: 1000px) {
-    .catalog-backdrop::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background-image:
-        url('/images/backgrounds/side-right.webp'),
-        url('/images/backgrounds/side-left.webp');
-      background-repeat: no-repeat;
-      background-position:
-        right 150px,
-        left 150px;
-      background-size: min(600px, 48vw) auto;
-      opacity: 0.55;
-      pointer-events: none;
-    }
-    html[data-theme='dark'] .catalog-backdrop::before {
-      opacity: 0.2;
-    }
+}
+@media (max-width: 820px) {
+  .community-ribbon-inner {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 8px 13px;
+    padding-block: 16px;
   }
-  @media (max-width: 1100px) {
-    .product-logo {
-      width: 32px;
-      height: 32px;
-    }
-    .recognition-panel {
-      grid-template-columns: 130px minmax(0, 1fr);
-      gap: 16px 24px;
-      padding: 26px;
-    }
-    .recognition-art {
-      grid-row: span 2;
-    }
-    .recognition-art img {
-      width: 130px;
-      height: 130px;
-    }
-    .recognition-actions {
-      grid-column: 2;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 14px 22px;
-    }
+  .community-ribbon p {
+    flex-basis: calc(100% - 38px);
+    font-size: 12px;
   }
-  @media (max-width: 820px) {
-    .community-ribbon-inner {
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 8px 13px;
-      padding-block: 16px;
-    }
-    .community-ribbon p {
-      flex-basis: calc(100% - 38px);
-      font-size: 12px;
-    }
-    .community-ribbon a {
-      margin-left: 36px;
-      min-height: 28px;
-      font-size: 11px;
-    }
+  .community-ribbon a {
+    margin-left: 36px;
+    min-height: 28px;
+    font-size: 11px;
   }
-  @media (max-width: 650px) {
-    .recognition-panel,
-    .wide-guide > .recognition-panel {
-      grid-template-columns: 104px minmax(0, 1fr);
-      gap: 16px;
-      padding: 22px;
-      margin-bottom: 30px;
-    }
-    .recognition-art,
-    .wide-guide > .recognition-panel .recognition-art {
-      grid-row: auto;
-      align-self: start;
-    }
-    .recognition-art img,
-    .wide-guide > .recognition-panel .recognition-art img {
-      width: 104px;
-      height: 104px;
-    }
-    .recognition-panel h2 {
-      font-size: 23px;
-    }
-    .recognition-actions,
-    .wide-guide > .recognition-panel .recognition-actions {
-      grid-column: 1 / -1;
-      justify-content: center;
-    }
+}
+@media (max-width: 650px) {
+  .recognition-panel,
+  .wide-guide > .recognition-panel {
+    grid-template-columns: 104px minmax(0, 1fr);
+    gap: 16px;
+    padding: 22px;
+    margin-bottom: 30px;
   }
-  @media (max-width: 450px) {
-    .product-logo {
-      width: 28px;
-      height: 28px;
-    }
-    .hero-proof {
-      align-items: flex-start;
-      font-size: 11px;
-    }
-    .hero-proof strong {
-      font-size: 12px;
-    }
-    .hero-proof p > span {
-      font-size: 11px;
-    }
-    .recognition-panel,
-    .wide-guide > .recognition-panel {
-      grid-template-columns: 1fr;
-      gap: 17px;
-      padding: 24px;
-      text-align: center;
-    }
-    .recognition-art,
-    .wide-guide > .recognition-panel .recognition-art {
-      justify-self: center;
-    }
-    .recognition-art img,
-    .wide-guide > .recognition-panel .recognition-art img {
-      width: 144px;
-      height: 144px;
-    }
-    .recognition-panel .eyebrow {
-      justify-content: center;
-    }
-    .recognition-actions,
-    .wide-guide > .recognition-panel .recognition-actions {
-      display: grid;
-      justify-items: center;
-      gap: 15px;
-    }
-    .recognition-actions .button {
-      width: 100%;
-      font-size: 11px;
-    }
+  .recognition-art,
+  .wide-guide > .recognition-panel .recognition-art {
+    grid-row: auto;
+    align-self: start;
+  }
+  .recognition-art img,
+  .wide-guide > .recognition-panel .recognition-art img {
+    width: 104px;
+    height: 104px;
+  }
+  .recognition-panel h2 {
+    font-size: 23px;
+  }
+  .recognition-actions,
+  .wide-guide > .recognition-panel .recognition-actions {
+    grid-column: 1 / -1;
+    justify-content: center;
+  }
+}
+@media (max-width: 450px) {
+  .product-logo {
+    width: 28px;
+    height: 28px;
+  }
+  .hero-proof {
+    align-items: flex-start;
+    font-size: 11px;
+  }
+  .hero-proof strong {
+    font-size: 12px;
+  }
+  .hero-proof p > span {
+    font-size: 11px;
+  }
+  .recognition-panel,
+  .wide-guide > .recognition-panel {
+    grid-template-columns: 1fr;
+    gap: 17px;
+    padding: 24px;
+    text-align: center;
+  }
+  .recognition-art,
+  .wide-guide > .recognition-panel .recognition-art {
+    justify-self: center;
+  }
+  .recognition-art img,
+  .wide-guide > .recognition-panel .recognition-art img {
+    width: 144px;
+    height: 144px;
+  }
+  .recognition-panel .eyebrow {
+    justify-content: center;
+  }
+  .recognition-actions,
+  .wide-guide > .recognition-panel .recognition-actions {
+    display: grid;
+    justify-items: center;
+    gap: 15px;
+  }
+  .recognition-actions .button {
+    width: 100%;
+    font-size: 11px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
   *,
   *:before,
