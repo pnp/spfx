@@ -68,8 +68,8 @@ so the same command works after a clean checkout and source refresh.
 
 ## The experience
 
-- Microsoft 365-first, with official **Copilot, SharePoint, Teams and Power
-  Automate** logos alongside Parker. **Connections remains a discovery tab and
+- Microsoft 365-first, with official **Copilot, SharePoint and Teams**
+  logos alongside Parker. **Connections remains a discovery tab and
   part of the text**, but no longer has a promotional hero logo.
 - Search across sample text, technology, source and contributors.
 - Combined component, technology, SPFx-version and source filters: OR within a

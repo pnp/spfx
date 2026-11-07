@@ -84,7 +84,7 @@ The [repair tracker](./sample-tracking.md) distinguishes landed fixes from this 
 
 ### Community refinement (2026-11-07)
 
-- [x] Use the supplied official Copilot, SharePoint, Teams and Power Automate logos with Parker; keep artwork proportional and optimized.
+- [x] Use the supplied official Copilot, SharePoint and Teams logos with Parker; keep artwork proportional and optimized.
 - [x] Remove Connections from hero/promotional logos, while retaining its filtering tab, classifications, relevant text and original source screenshots.
 - [x] Add the supplied contributor badge with opt-in recognition guidance, community-call promotion and demo signup based on availability.
 - [x] Celebrate the customer/partner SPFx ecosystem's tens of millions of daily active users as maintainer-approved context, not fabricated live telemetry.
@@ -92,6 +92,10 @@ The [repair tracker](./sample-tracking.md) distinguishes landed fixes from this 
 - [x] Add the reference gallery's abstract side artwork, real-site README/social previews and root contributor guidance with source and asset attribution.
 - [x] Verify 90 unit tests, 28 desktop/mobile checks and a type check with zero diagnostics; local Lighthouse mobile scores remain **99 performance / 100 accessibility / 100 best practices / 100 SEO**.
 - [x] Publish this refinement: [successful release](https://github.com/pnp/spfx/actions/runs/42382536653). All 28 desktop/mobile checks also passed against the live Pages site, including official assets, community invitations, data-derived counts and preserved Connections filtering.
+
+The hero story is limited to Copilot, SharePoint and Teams with Parker; Power
+Automate is not promoted as part of the SPFx story. The contributor badge is
+capped at 500px intrinsic height while retaining its smaller responsive display sizes.
 
 - [x] Check JSON parsing/root shapes, required text, dates, products, key/value metadata, authors, previews and references.
 - [x] Check names/URLs for duplicates and verify sample links belong to the correct repository and sample directory.

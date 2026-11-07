@@ -4,7 +4,7 @@ https://github.com/pnp/script-samples/tree/eac633e4ffe734b6e34c7d038dcd63fc9767e
 
 The supplied Parker PNG is identical to the community artwork above.
 
-The Copilot, SharePoint, Teams and Power Automate product logos and the
+The Copilot, SharePoint and Teams product logos and the
 Community Contributor badge were supplied by the maintainers. Optimized
 derivatives preserve the original artwork and proportions. These branding
 assets retain their respective owners' copyright and trademark rights;
@@ -14,7 +14,6 @@ Source asset names:
 - copilot.png
 - SharePoint_512.png
 - Teams_512.png
-- powerautomate_256x256.png
 - badge-community-contributor-main-badge.png
 
 The decorative side artwork is reused from pnp/spfx-copilot-components,

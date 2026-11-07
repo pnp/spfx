@@ -551,6 +551,13 @@ html[data-theme='dark'] .theme-moon {
   object-fit: contain;
   flex-shrink: 0;
 }
+.tile-teams {
+  left: 50%;
+  right: auto;
+  top: auto;
+  bottom: 40px;
+  transform: translateX(-50%) rotate(2deg);
+}
 .tile-copilot {
   left: 17px;
   top: 56px;
@@ -560,16 +567,6 @@ html[data-theme='dark'] .theme-moon {
   right: 17px;
   top: 53px;
   transform: rotate(4deg);
-}
-.tile-teams {
-  right: 12px;
-  top: 219px;
-  transform: rotate(5deg);
-}
-.tile-automation {
-  left: 25px;
-  bottom: 40px;
-  transform: rotate(-2deg);
 }
 .art-note {
   position: absolute;
@@ -1888,12 +1885,6 @@ html[data-theme='dark'] .theme-moon {
   .tile-copilot {
     left: 10px;
   }
-  .tile-automation {
-    left: 12px;
-  }
-  .tile-teams {
-    right: 9px;
-  }
   .catalog-layout {
     grid-template-columns: 190px minmax(0, 1fr);
     gap: 22px;
@@ -1954,17 +1945,9 @@ html[data-theme='dark'] .theme-moon {
     top: 50px;
     left: 10px;
   }
-  .tile-teams {
-    right: 9px;
-    top: 234px;
-  }
   .tile-sharepoint {
     right: 9px;
     top: 48px;
-  }
-  .tile-automation {
-    bottom: 37px;
-    left: 12px;
   }
   .art-core {
     width: 142px;
@@ -2057,17 +2040,9 @@ html[data-theme='dark'] .theme-moon {
     left: 11%;
     top: 39px;
   }
-  .tile-teams {
-    right: 8%;
-    top: 236px;
-  }
   .tile-sharepoint {
     right: 8%;
     top: 36px;
-  }
-  .tile-automation {
-    left: 12%;
-    bottom: 30px;
   }
   .art-caption {
     font-size: 9px;
@@ -2372,17 +2347,9 @@ html[data-theme='dark'] .theme-moon {
     left: 8px;
     top: 38px;
   }
-  .tile-teams {
-    right: 8px;
-    top: 238px;
-  }
   .tile-sharepoint {
     right: 8px;
     top: 38px;
-  }
-  .tile-automation {
-    left: 8px;
-    bottom: 32px;
   }
   .art-caption {
     top: 14px;

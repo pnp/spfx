@@ -329,14 +329,20 @@ test('Connections remains discoverable without a promotional logo', async ({
   ).toHaveText('Connections');
   await expect(page.locator('.hero-art')).not.toContainText('Connections');
   await expect(page.locator('.hero-art .tile-connections')).toHaveCount(0);
-  await expect(page.locator('.hero-art .product-logo')).toHaveCount(4);
+  await expect(page.locator('.hero-art .product-logo')).toHaveCount(3);
+  await expect(page.locator('.hero-art')).not.toContainText('Power Automate');
+  await expect(page.locator('.hero-art')).not.toHaveAttribute(
+    'aria-label',
+    /Power Automate/,
+  );
+  await expect(page.locator('.hero-art .tile-automation')).toHaveCount(0);
 });
 
 test('official artwork and community invitations are available and accessible', async ({
   page,
 }) => {
   await page.goto('./');
-  for (const product of ['copilot', 'sharepoint', 'teams', 'power-automate']) {
+  for (const product of ['copilot', 'sharepoint', 'teams']) {
     const logo = page.locator(`.hero-art img[src$="/brand/${product}.webp"]`);
     await expect(logo).toBeVisible();
     await expect
@@ -360,6 +366,15 @@ test('official artwork and community invitations are available and accessible', 
     'src',
     /\/images\/brand\/contributor-badge\.webp$/,
   );
+  await expect
+    .poll(() =>
+      page
+        .locator('.recognition-panel img')
+        .evaluate((image) =>
+          image instanceof HTMLImageElement ? image.naturalHeight : 0,
+        ),
+    )
+    .toBe(500);
   await expect
     .poll(() =>
       page
