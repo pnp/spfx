@@ -91,7 +91,7 @@ The [repair tracker](./sample-tracking.md) distinguishes landed fixes from this 
 - [x] Derive sample, contributor, source and filter counts from each refreshed catalog; add exact-count and Connections-preservation regression checks.
 - [x] Add the reference gallery's abstract side artwork, real-site README/social previews and root contributor guidance with source and asset attribution.
 - [x] Verify 90 unit tests, 28 desktop/mobile checks and a type check with zero diagnostics; local Lighthouse mobile scores remain **99 performance / 100 accessibility / 100 best practices / 100 SEO**.
-- [ ] Publish this refinement and verify it on the live Pages site.
+- [x] Publish this refinement: [successful release](https://github.com/pnp/spfx/actions/runs/42382536653). All 28 desktop/mobile checks also passed against the live Pages site, including official assets, community invitations, data-derived counts and preserved Connections filtering.
 
 - [x] Check JSON parsing/root shapes, required text, dates, products, key/value metadata, authors, previews and references.
 - [x] Check names/URLs for duplicates and verify sample links belong to the correct repository and sample directory.
