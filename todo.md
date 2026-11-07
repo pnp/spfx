@@ -102,6 +102,23 @@ gap before its heading, and an independently boxed, visibly labeled search area.
 Community layout styles apply in both normal and reduced-motion modes; regression
 checks cover spacing, filtering and accessibility on desktop and mobile.
 
+### Gallery UX closeout (2026-11-07)
+
+**Status: gallery refinement complete for now; individual sample upgrades are next.**
+
+- [x] Place Teams in its own box to Parker's right, with at least a 12px measured gap at 375px, 393px, 768px, 1024px and 1440px.
+- [x] Recheck both contributor pages on mobile in normal and reduced-motion modes: badges render at 144px square, remain contained and retain the 500px intrinsic asset.
+- [x] Refresh the real-site README and social preview images with the final hero layout.
+- [x] Pass all 34 desktop/mobile browser checks and an Astro type check with zero diagnostics.
+- [x] Preserve Connections discovery, the Copilot/SharePoint/Teams hero, community invitations and boxed contributor recognition.
+- [ ] Start individual sample upgrades in the source repositories as the next phase; update the [repair tracker](./sample-tracking.md) as work lands.
+
+The open ACE metadata PR, sample build failures and deferred preview/external-link
+backlog remain pending. This gallery closeout does not mark those source issues
+resolved or change the requirement for all upstream PR checks to pass.
+
+### Ongoing source quality
+
 - [x] Check JSON parsing/root shapes, required text, dates, products, key/value metadata, authors, previews and references.
 - [x] Check names/URLs for duplicates and verify sample links belong to the correct repository and sample directory.
 - [x] Check HTTPS/URL syntax, preview ordering and useful alt text.

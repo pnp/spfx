@@ -483,3 +483,72 @@ test('contributors recognition is boxed and separated from working search in bot
     ).toBe(true);
   }
 });
+
+test('Teams remains isolated to the right of Parker across viewport sizes', async ({
+  page,
+}) => {
+  await page.goto('./');
+  for (const width of [375, 393, 768, 1024, 1440]) {
+    await page.setViewportSize({ width, height: 1100 });
+    const parker = await page.locator('.art-core').boundingBox();
+    const teams = await page.locator('.tile-teams').boundingBox();
+    const artwork = await page.locator('.hero-art').boundingBox();
+    if (!parker || !teams || !artwork)
+      throw new Error('Hero artwork is not laid out.');
+    expect(
+      teams.x - parker.x - parker.width,
+      `${width}px Teams/Parker separation`,
+    ).toBeGreaterThanOrEqual(12);
+    expect(teams.x + teams.width).toBeLessThanOrEqual(
+      artwork.x + artwork.width,
+    );
+    expect(teams.y).toBeGreaterThanOrEqual(artwork.y);
+    expect(teams.y + teams.height).toBeLessThanOrEqual(
+      artwork.y + artwork.height,
+    );
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+  }
+});
+
+test('mobile contributor badges stay contained in both motion modes', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 375, height: 1100 });
+  for (const reducedMotion of ['no-preference', 'reduce'] as const) {
+    await page.emulateMedia({ reducedMotion });
+    for (const route of ['contributors/', 'contributing/']) {
+      await page.goto(`./${route}`);
+      const badge = page.locator('.recognition-panel img');
+      await expect
+        .poll(() =>
+          badge.evaluate(
+            (image) =>
+              image instanceof HTMLImageElement &&
+              image.complete &&
+              image.naturalHeight === 500,
+          ),
+        )
+        .toBe(true);
+      await expect(badge).toHaveCSS('object-fit', 'contain');
+      const bounds = await badge.boundingBox();
+      const panel = await page.locator('.recognition-panel').boundingBox();
+      if (!bounds || !panel)
+        throw new Error('The mobile badge is not laid out.');
+      expect(bounds.height).toBeLessThanOrEqual(160);
+      expect(Math.abs(bounds.width - bounds.height)).toBeLessThanOrEqual(1);
+      expect(bounds.x).toBeGreaterThanOrEqual(panel.x);
+      expect(bounds.x + bounds.width).toBeLessThanOrEqual(
+        panel.x + panel.width,
+      );
+      expect(
+        await page.evaluate(
+          () => document.documentElement.scrollWidth <= innerWidth,
+        ),
+      ).toBe(true);
+    }
+  }
+});

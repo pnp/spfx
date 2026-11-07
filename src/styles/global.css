@@ -444,6 +444,10 @@ html[data-theme='dark'] .theme-moon {
   flex-shrink: 0;
 }
 .hero-art {
+  --parker-width: 161px;
+  --teams-width: 160px;
+  --hero-card-inset: 16px;
+  --hero-card-gap: 24px;
   height: 355px;
   position: relative;
   background: radial-gradient(
@@ -494,14 +498,21 @@ html[data-theme='dark'] .theme-moon {
 }
 .art-core {
   position: absolute;
-  top: 88px;
-  left: 50%;
+  top: 144px;
+  /* Reserve the full Teams card and a gap, including the tilted box edges. */
+  left: min(
+    50%,
+    calc(
+      100% - var(--teams-width) - var(--hero-card-inset) -
+        var(--hero-card-gap) - var(--parker-width) / 2
+    )
+  );
   transform: translateX(-50%) rotate(-3deg);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 161px;
+  width: var(--parker-width);
   height: 171px;
   background: linear-gradient(150deg, #fff, #e5f1ff);
   border: 1px solid #fff;
@@ -552,11 +563,12 @@ html[data-theme='dark'] .theme-moon {
   flex-shrink: 0;
 }
 .tile-teams {
-  left: 50%;
-  right: auto;
-  top: auto;
-  bottom: 40px;
-  transform: translateX(-50%) rotate(2deg);
+  width: var(--teams-width);
+  left: auto;
+  right: var(--hero-card-inset);
+  top: 63%;
+  bottom: auto;
+  transform: translateY(-50%) rotate(2deg);
 }
 .tile-copilot {
   left: 17px;
@@ -570,7 +582,7 @@ html[data-theme='dark'] .theme-moon {
 }
 .art-note {
   position: absolute;
-  bottom: 22px;
+  bottom: 12px;
   left: 0;
   right: 0;
   text-align: center;
@@ -1969,6 +1981,9 @@ html[data-theme='dark'] .theme-moon {
     font-size: 13px;
   }
   .hero-art {
+    --parker-width: 142px;
+    --teams-width: 144px;
+    --hero-card-inset: 12px;
     height: 332px;
   }
   .art-tile {
@@ -1987,9 +2002,8 @@ html[data-theme='dark'] .theme-moon {
     top: 48px;
   }
   .art-core {
-    width: 142px;
     height: 130px;
-    top: 105px;
+    top: 130px;
   }
   .art-core img {
     height: 65px;
@@ -2063,14 +2077,14 @@ html[data-theme='dark'] .theme-moon {
     max-width: 550px;
   }
   .hero-art {
+    --parker-width: 145px;
     height: 320px;
     max-width: 600px;
     width: 100%;
     margin-inline: auto;
   }
   .art-core {
-    top: 105px;
-    width: 145px;
+    top: 130px;
     height: 130px;
   }
   .tile-copilot {
@@ -2360,11 +2374,13 @@ html[data-theme='dark'] .theme-moon {
     margin-top: 22px;
   }
   .hero-art {
+    --parker-width: 126px;
+    --teams-width: calc(50% - 22px);
+    --hero-card-inset: 8px;
     height: 320px;
     border-radius: 13px;
   }
   .art-core {
-    width: 126px;
     height: 127px;
     top: 102px;
   }
@@ -2383,6 +2399,10 @@ html[data-theme='dark'] .theme-moon {
     gap: 7px;
     font-size: 6px;
     width: calc(50% - 22px);
+  }
+  .tile-teams {
+    width: var(--teams-width);
+    top: 52%;
   }
   .art-tile strong {
     font-size: 11px;
